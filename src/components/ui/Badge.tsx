@@ -8,29 +8,37 @@ interface BadgeProps {
   className?: string
 }
 
-const variantConfig: Record<Variant, { dotColor: string; label: string; textColor: string; bgColor: string }> = {
-  available: {
-    dotColor: '#22c55e',
-    label: 'Available',
-    textColor: '#166534',
-    bgColor: '#dcfce7',
-  },
-  'coming-soon': {
-    dotColor: '#9ca3af',
-    label: 'Coming Soon',
-    textColor: '#374151',
-    bgColor: '#f3f4f6',
-  },
-  featured: {
-    dotColor: '#E31E24',
-    label: 'Featured',
-    textColor: '#FFFFFF',
-    bgColor: '#E31E24',
-  },
-}
-
 export function Badge({ variant, children, className = '' }: BadgeProps) {
-  const { dotColor, label, textColor, bgColor } = variantConfig[variant]
+  if (variant === 'available') {
+    return (
+      <span className={`inline-flex items-center gap-1.5 ${className}`}>
+        <span
+          className="w-1.5 h-1.5 rounded-full bg-brand-gray-500 shrink-0"
+          aria-hidden="true"
+        />
+        <span className="text-[12px] font-light text-brand-gray-500">
+          {children ?? 'Available'}
+        </span>
+      </span>
+    )
+  }
+
+  const pillConfig = {
+    'coming-soon': {
+      dotColor: '#9ca3af',
+      label: 'Coming Soon',
+      textColor: '#374151',
+      bgColor: '#f3f4f6',
+    },
+    featured: {
+      dotColor: '#E31E24',
+      label: 'Featured',
+      textColor: '#FFFFFF',
+      bgColor: '#E31E24',
+    },
+  } as const
+
+  const { dotColor, label, textColor, bgColor } = pillConfig[variant]
 
   return (
     <span

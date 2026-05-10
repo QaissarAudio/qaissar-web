@@ -6,7 +6,11 @@
       "Bash(xargs grep -l \"getFromImportMap\")",
       "Bash(xargs grep -A5 '\"client\"')",
       "Bash(npm run *)",
-      "PowerShell(Get-Process *)"
+      "PowerShell(Get-Process *)",
+      "Bash(Get-ChildItem -Path \"D:\\\\Projects\\\\qaissar-web\" -Recurse -Directory)",
+      "Bash(Select-Object -ExpandProperty FullName)",
+      "Bash(Get-ChildItem -Path \"D:\\\\Projects\\\\qaissar-web\" -Force)",
+      "Bash(Select-Object Name, FullName)"
     ]
   }
 }
