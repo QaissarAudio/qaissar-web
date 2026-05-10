@@ -394,7 +394,7 @@ export default function HomePage() {
       </section>
 
       {/* ── SECTION 6: CTA BAND ──────────────────────────────────────── */}
-      <section className="py-20 lg:py-32 px-6 lg:px-12 text-center" style={{ backgroundColor: '#1A1A1A' }}>
+      <section className="py-20 lg:py-20 px-6 lg:px-12 text-center" style={{ backgroundColor: '#1A1A1A' }}>
         <div className="max-w-3xl mx-auto">
           <h2 className="text-[48px] font-extrabold text-white leading-tight">
             Ready to bring Qaissar to your market?

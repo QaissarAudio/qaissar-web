@@ -40,13 +40,13 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
 
         {/* Top row */}
-        <div className="flex items-center justify-between pt-16 pb-12">
+        <div className="flex items-center justify-between pt-0 pb-5">
           <QaissarLogo size="md" variant="light" />
           <p className="text-brand-gray-500 font-light text-sm">The commercial audio ecosystem.</p>
         </div>
 
         {/* Middle row — 4 columns */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 py-12">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-15 py-8">
           {columns.map(({ heading, links }) => (
             <div key={heading}>
               <p className="text-[11px] font-semibold uppercase tracking-[2px] text-brand-gray-200 mb-4">
@@ -83,7 +83,7 @@ export function Footer() {
         <hr style={{ borderColor: '#333333' }} />
 
         {/* Bottom row */}
-        <div className="flex items-center justify-between py-8">
+        <div className="flex items-center justify-between py-5">
           <p className="text-xs text-brand-gray-500 font-light">
             © 2026 Qaissar. A Masar Technology brand.
           </p>
