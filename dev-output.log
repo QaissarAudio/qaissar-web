@@ -1,0 +1,41 @@
+
+> qaissar-web@0.1.0 dev
+> node --max-old-space-size=4096 node_modules/next/dist/bin/next dev
+
+   ▲ Next.js 15.2.4
+   - Local:        http://localhost:3000
+   - Network:      http://10.14.0.2:3000
+   - Environments: .env.local
+
+ ✓ Starting...
+ ⚠ Invalid next.config.ts options detected: 
+ ⚠     Unrecognized key(s) in object: 'turbopack'
+Payload: You can safely ignore the "Invalid next.config" warning above. This only occurs on Next.js 15.2.x or lower. We recommend upgrading to the latest supported Next.js version to resolve this warning.
+Payload: You can safely ignore the "Invalid next.config" warning above. This only occurs on Next.js 15.2.x or lower. We recommend upgrading to the latest supported Next.js version to resolve this warning.
+ ⚠ See more info here: https://nextjs.org/docs/messages/invalid-next-config
+ ✓ Ready in 5.7s
+ ○ Compiling /api/[...slug] ...
+ ✓ Compiled /api/[...slug] in 872ms (1149 modules)
+[11:47:02] [33mWARN[39m: [36mNo email adapter provided. Email will be written to console. More info at https://payloadcms.com/docs/email/overview.[39m
+ POST /api/users/first-register 200 in 15732ms
+[11:51:47] [32mINFO[39m: [36mYou are not allowed to perform this action.[39m
+ POST /api/users/first-register 403 in 4118ms
+ ○ Compiling /admin/[[...segments]] ...
+ ✓ Compiled /admin/[[...segments]] in 13s (3766 modules)
+ ⨯ [Error: Cannot find module './vendor-chunks/escape-html.js'
+Require stack:
+- D:\Projects\qaissar-web\.next\server\webpack-runtime.js
+- D:\Projects\qaissar-web\.next\server\app\(payload)\admin\[[...segments]]\page.js
+- D:\Projects\qaissar-web\node_modules\next\dist\server\require.js
+- D:\Projects\qaissar-web\node_modules\next\dist\server\load-components.js
+- D:\Projects\qaissar-web\node_modules\next\dist\build\utils.js
+- D:\Projects\qaissar-web\node_modules\next\dist\server\dev\static-paths-worker.js
+- D:\Projects\qaissar-web\node_modules\next\dist\compiled\jest-worker\processChild.js] {
+  type: 'Error',
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/admin'
+}
+ ○ Compiling /_error ...
+ ✓ Compiled /_error in 4s (3743 modules)
+ GET /admin 500 in 19490ms

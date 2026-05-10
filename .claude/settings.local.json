@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e ' *)",
+      "Bash(node --input-type=module -e ' *)",
+      "Bash(xargs grep -l \"getFromImportMap\")",
+      "Bash(xargs grep -A5 '\"client\"')",
+      "Bash(npm run *)",
+      "PowerShell(Get-Process *)"
+    ]
+  }
+}
