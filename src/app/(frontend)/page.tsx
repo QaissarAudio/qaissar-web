@@ -49,7 +49,7 @@ export default function HomePage() {
   return (
     <>
       {/* ── SECTION 1: HERO ─────────────────────────────────────────── */}
-      <section className="bg-white px-6 lg:px-12 pt-16 pb-16 lg:pt-24 lg:pb-24">
+      <section className="bg-white px-6 lg:px-12 pt-16 pb-16 lg:pt-24 lg:pb-12">
         <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-[55fr_45fr] gap-12 lg:gap-20 items-center">
 
           {/* Left column */}
@@ -87,7 +87,7 @@ export default function HomePage() {
       </section>
 
       {/* ── SECTION 2: FOUR PILLARS ─────────────────────────────────── */}
-      <section className="bg-white py-20 px-6 lg:px-12">
+      <section className="bg-white py-2 px-6 lg:px-12">
         <div className="max-w-7xl mx-auto">
 
           <SectionLabel>Why Qaissar</SectionLabel>
