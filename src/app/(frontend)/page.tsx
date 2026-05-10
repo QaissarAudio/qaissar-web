@@ -100,11 +100,18 @@ export default function HomePage() {
             {/* Card 1 — Prayer time automation */}
             <div className="border border-brand-gray-200 rounded-[12px] p-8">
               <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-                <line x1="4" y1="28" x2="4" y2="14" stroke="#1A1A1A" strokeWidth="2" strokeLinecap="round"/>
-                <line x1="2" y1="16" x2="6" y2="16" stroke="#1A1A1A" strokeWidth="1.5" strokeLinecap="round"/>
-                <path d="M9 18 Q16 6 23 18" stroke="#1A1A1A" strokeWidth="2" fill="none" strokeLinecap="round"/>
-                <rect x="9" y="18" width="14" height="10" stroke="#1A1A1A" strokeWidth="2" fill="none"/>
-                <path d="M14 28 L14 23 Q16 21 18 23 L18 28" stroke="#1A1A1A" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+                {/* Left minaret */}
+                <rect x="2" y="12" width="3" height="16" stroke="#1A1A1A" strokeWidth="1.5" fill="none"/>
+                <path d="M2 12 Q3.5 9 5 12" stroke="#1A1A1A" strokeWidth="1.5" fill="none"/>
+                {/* Right minaret */}
+                <rect x="27" y="12" width="3" height="16" stroke="#1A1A1A" strokeWidth="1.5" fill="none"/>
+                <path d="M27 12 Q28.5 9 30 12" stroke="#1A1A1A" strokeWidth="1.5" fill="none"/>
+                {/* Main dome */}
+                <path d="M8 18 Q16 4 24 18" stroke="#1A1A1A" strokeWidth="2" fill="none" strokeLinecap="round"/>
+                {/* Main body */}
+                <rect x="8" y="18" width="16" height="10" stroke="#1A1A1A" strokeWidth="2" fill="none"/>
+                {/* Arched door */}
+                <path d="M13 28 L13 23 Q16 20 19 23 L19 28" stroke="#1A1A1A" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
               <h3 className="text-[20px] font-extrabold text-brand-black mt-5">
                 Prayer time automation
@@ -232,11 +239,18 @@ export default function HomePage() {
             {/* Card 1 — Mosques */}
             <div className="p-8 border border-brand-gray-200 rounded-[12px] hover:border-brand-black transition-colors duration-200 cursor-default">
               <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-                <path d="M9 18 Q16 6 23 18" stroke="#1A1A1A" strokeWidth="2" fill="none" strokeLinecap="round"/>
-                <rect x="9" y="18" width="14" height="12" stroke="#1A1A1A" strokeWidth="2" fill="none"/>
-                <line x1="4" y1="28" x2="4" y2="16" stroke="#1A1A1A" strokeWidth="2" strokeLinecap="round"/>
-                <line x1="2" y1="18" x2="6" y2="18" stroke="#1A1A1A" strokeWidth="1.5" strokeLinecap="round"/>
-                <path d="M14 30 L14 25 Q16 23 18 25 L18 30" stroke="#1A1A1A" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+                {/* Left minaret */}
+                <rect x="2" y="12" width="3" height="16" stroke="#1A1A1A" strokeWidth="1.5" fill="none"/>
+                <path d="M2 12 Q3.5 9 5 12" stroke="#1A1A1A" strokeWidth="1.5" fill="none"/>
+                {/* Right minaret */}
+                <rect x="27" y="12" width="3" height="16" stroke="#1A1A1A" strokeWidth="1.5" fill="none"/>
+                <path d="M27 12 Q28.5 9 30 12" stroke="#1A1A1A" strokeWidth="1.5" fill="none"/>
+                {/* Main dome */}
+                <path d="M8 18 Q16 4 24 18" stroke="#1A1A1A" strokeWidth="2" fill="none" strokeLinecap="round"/>
+                {/* Main body */}
+                <rect x="8" y="18" width="16" height="10" stroke="#1A1A1A" strokeWidth="2" fill="none"/>
+                {/* Arched door */}
+                <path d="M13 28 L13 23 Q16 20 19 23 L19 28" stroke="#1A1A1A" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
               <h3 className="text-[18px] font-extrabold text-brand-black mt-4">Mosques</h3>
               <p className="text-[14px] font-light text-brand-gray-500 mt-2 leading-relaxed">

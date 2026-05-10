@@ -41,3 +41,5 @@ payload-types.ts
 # media uploads — track the directory but not contents
 public/media/*
 !public/media/.gitkeep
+
+.vercel
