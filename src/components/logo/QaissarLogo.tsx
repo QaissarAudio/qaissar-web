@@ -9,50 +9,48 @@ interface QaissarLogoProps {
   className?: string
 }
 
-const sizeConfig: Record<Size, { ringDiameter: number; fontSize: number; gap: number }> = {
-  sm: { ringDiameter: 24, fontSize: 16, gap: 8 },
-  md: { ringDiameter: 32, fontSize: 20, gap: 10 },
-  lg: { ringDiameter: 48, fontSize: 28, gap: 14 },
-}
+// Original SVG: 1024x1024 canvas
+// Ring: cx=450, cy=480, r=220, stroke-width=90
+// Dot: cx=770, cy=670, r=80
+// viewBox="180 220 680 600" crops to just the mark
 
 export function QaissarLogo({ size = 'md', variant = 'dark', className }: QaissarLogoProps) {
-  const { ringDiameter, fontSize, gap } = sizeConfig[size]
-  const strokeWidth = ringDiameter * 0.08
-  const dotRadius = ringDiameter * 0.18
-  const dotOffsetX = ringDiameter * 0.6
-  const dotOffsetY = ringDiameter * 0.08
-
   const brandColor = variant === 'dark' ? '#1A1A1A' : '#FFFFFF'
-  const svgWidth = ringDiameter + dotRadius * 2
+
+  const sizeMap = { sm: 32, md: 44, lg: 64 }
+  const fontSizeMap = { sm: 15, md: 20, lg: 28 }
+  const gapMap = { sm: 8, md: 10, lg: 14 }
+
+  const height = sizeMap[size]
+  const width = Math.round(height * (680 / 600))
 
   return (
     <div
       className={className}
-      style={{ display: 'inline-flex', alignItems: 'center', gap }}
+      style={{ display: 'inline-flex', alignItems: 'center', gap: gapMap[size] }}
     >
-      {/* Ring + red dot mark */}
       <svg
-        width={svgWidth}
-        height={ringDiameter}
-        viewBox={`0 0 ${svgWidth} ${ringDiameter}`}
+        width={width}
+        height={height}
+        viewBox="180 220 680 600"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         aria-hidden="true"
       >
-        {/* Circle outline ring */}
+        {/* Black ring */}
         <circle
-          cx={ringDiameter / 2}
-          cy={ringDiameter / 2}
-          r={ringDiameter / 2 - strokeWidth / 2}
-          stroke={brandColor}
-          strokeWidth={strokeWidth}
+          cx="450"
+          cy="480"
+          r="220"
           fill="none"
+          stroke={brandColor}
+          strokeWidth="90"
         />
-        {/* Red dot — offset to upper-right */}
+        {/* Red dot — bottom right, outside ring */}
         <circle
-          cx={dotOffsetX}
-          cy={dotOffsetY + dotRadius}
-          r={dotRadius}
+          cx="770"
+          cy="670"
+          r="80"
           fill="#E31E24"
         />
       </svg>
@@ -62,7 +60,7 @@ export function QaissarLogo({ size = 'md', variant = 'dark', className }: Qaissa
         style={{
           fontFamily: '"Nunito Sans", sans-serif',
           fontWeight: 800,
-          fontSize,
+          fontSize: fontSizeMap[size],
           color: brandColor,
           letterSpacing: '0.02em',
           lineHeight: 1,

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 // Reusable section label
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
-    <p className="text-brand-red text-[12px] font-semibold uppercase tracking-[2px]">
+    <p className="text-brand-red text-[26px] font-semibold uppercase tracking-[2px]">
       {children}
     </p>
   )
@@ -20,13 +20,27 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 // Reusable AzanPlay badge
 function AzanPlayBadge({ label = 'Powered by AzanPlay ↗' }: { label?: string }) {
   return (
+    
     <a
       href="https://azanplay.com"
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex items-center border border-brand-gray-200 rounded-full px-[14px] py-[6px] text-[13px] text-brand-gray-500 hover:text-brand-black transition-colors"
+      className="inline-flex items-center gap-2 rounded-full px-8 py-5 hover:opacity-80 transition-opacity"
+      style={{ backgroundColor: '#1A1A1A' }}
     >
-      {label}
+      <span
+        style={{
+          width: 18,
+          height: 18,
+          borderRadius: '50%',
+          backgroundColor: '#E31E24',
+          display: 'inline-block',
+          flexShrink: 0,
+        }}
+      />
+      <span style={{ color: '#FFFFFF', fontSize: 16, fontWeight: 600, fontFamily: '"Nunito Sans", sans-serif' }}>
+        {label}
+      </span>
     </a>
   )
 }
@@ -35,7 +49,7 @@ export default function HomePage() {
   return (
     <>
       {/* ── SECTION 1: HERO ─────────────────────────────────────────── */}
-      <section className="bg-white px-6 lg:px-12 pt-16 pb-0 lg:pt-20 lg:pb-0">
+      <section className="bg-white px-6 lg:px-12 pt-16 pb-16 lg:pt-24 lg:pb-24">
         <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-[55fr_45fr] gap-12 lg:gap-20 items-center">
 
           {/* Left column */}
@@ -56,19 +70,13 @@ export default function HomePage() {
               scheduled announcements, and background music — all from one app.
             </p>
 
-            <div className="flex flex-wrap gap-4 mt-10">
-              <Button variant="primary" size="lg" href="/distributor">
-                Become a Distributor
-              </Button>
-              <Button variant="ghost" size="lg" href="/products">
-                Explore Products →
-              </Button>
-            </div>
-
-            <div className="mt-6">
-              <AzanPlayBadge />
-            </div>
-          </div>
+         <div className="flex flex-wrap items-center gap-8 mt-10">
+  <AzanPlayBadge />
+  <Button variant="ghost" size="lg" href="/products">
+    Explore Products →
+  </Button>
+</div>
+              </div>
 
           {/* Right column — product image placeholder */}
           <div className="h-[480px] rounded-[16px] bg-brand-gray-100 flex items-center justify-center">
@@ -83,7 +91,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto">
 
           <SectionLabel>Why Qaissar</SectionLabel>
-          <h2 className="text-[40px] font-extrabold text-brand-black mt-3 mb-12 leading-tight">
+          <h2 className="text-[48px] font-extrabold text-brand-black mt-4 mb-12 leading-tight">
             Built for the way your business works.
           </h2>
 
@@ -92,14 +100,10 @@ export default function HomePage() {
             {/* Card 1 — Prayer time automation */}
             <div className="border border-brand-gray-200 rounded-[12px] p-8">
               <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-                {/* Minaret */}
                 <line x1="4" y1="28" x2="4" y2="14" stroke="#1A1A1A" strokeWidth="2" strokeLinecap="round"/>
                 <line x1="2" y1="16" x2="6" y2="16" stroke="#1A1A1A" strokeWidth="1.5" strokeLinecap="round"/>
-                {/* Dome arc */}
                 <path d="M9 18 Q16 6 23 18" stroke="#1A1A1A" strokeWidth="2" fill="none" strokeLinecap="round"/>
-                {/* Main body rectangle */}
                 <rect x="9" y="18" width="14" height="10" stroke="#1A1A1A" strokeWidth="2" fill="none"/>
-                {/* Door */}
                 <path d="M14 28 L14 23 Q16 21 18 23 L18 28" stroke="#1A1A1A" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
               <h3 className="text-[20px] font-extrabold text-brand-black mt-5">
@@ -164,7 +168,7 @@ export default function HomePage() {
       </section>
 
       {/* ── SECTION 3: APP SHOWCASE ──────────────────────────────────── */}
-      <section className="bg-brand-gray-100 py-[120px] px-6 lg:px-12">
+      <section className="bg-brand-gray-100 py-20 px-6 lg:px-12">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
@@ -215,7 +219,7 @@ export default function HomePage() {
       </section>
 
       {/* ── SECTION 4: USE CASES ─────────────────────────────────────── */}
-      <section className="bg-white py-[120px] px-6 lg:px-12">
+      <section className="bg-white py-20 px-6 lg:px-12">
         <div className="max-w-7xl mx-auto">
 
           <SectionLabel>Who it&apos;s for</SectionLabel>
@@ -228,10 +232,11 @@ export default function HomePage() {
             {/* Card 1 — Mosques */}
             <div className="p-8 border border-brand-gray-200 rounded-[12px] hover:border-brand-black transition-colors duration-200 cursor-default">
               <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-                <path d="M16 2C13 2 10 5 10 9v1H6v20h20V10h-4V9c0-4-3-7-6-7z" stroke="#1A1A1A" strokeWidth="2" strokeLinejoin="round" fill="none"/>
-                <path d="M16 2 C16 2 19 0 22 2" stroke="#1A1A1A" strokeWidth="1.5" strokeLinecap="round" fill="none"/>
-                <line x1="13" y1="20" x2="13" y2="30" stroke="#1A1A1A" strokeWidth="1.5" strokeLinecap="round"/>
-                <line x1="19" y1="20" x2="19" y2="30" stroke="#1A1A1A" strokeWidth="1.5" strokeLinecap="round"/>
+                <path d="M9 18 Q16 6 23 18" stroke="#1A1A1A" strokeWidth="2" fill="none" strokeLinecap="round"/>
+                <rect x="9" y="18" width="14" height="12" stroke="#1A1A1A" strokeWidth="2" fill="none"/>
+                <line x1="4" y1="28" x2="4" y2="16" stroke="#1A1A1A" strokeWidth="2" strokeLinecap="round"/>
+                <line x1="2" y1="18" x2="6" y2="18" stroke="#1A1A1A" strokeWidth="1.5" strokeLinecap="round"/>
+                <path d="M14 30 L14 25 Q16 23 18 25 L18 30" stroke="#1A1A1A" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
               <h3 className="text-[18px] font-extrabold text-brand-black mt-4">Mosques</h3>
               <p className="text-[14px] font-light text-brand-gray-500 mt-2 leading-relaxed">
@@ -313,7 +318,7 @@ export default function HomePage() {
       </section>
 
       {/* ── SECTION 5: PRODUCT SHOWCASE ──────────────────────────────── */}
-      <section className="bg-brand-gray-100 py-[120px] px-6 lg:px-12">
+      <section className="bg-brand-gray-100 py-20 px-6 lg:px-12">
         <div className="max-w-7xl mx-auto">
 
           <SectionLabel>Products</SectionLabel>
@@ -389,7 +394,7 @@ export default function HomePage() {
       </section>
 
       {/* ── SECTION 6: CTA BAND ──────────────────────────────────────── */}
-      <section className="py-[120px] px-6 lg:px-12 text-center" style={{ backgroundColor: '#1A1A1A' }}>
+      <section className="py-20 lg:py-32 px-6 lg:px-12 text-center" style={{ backgroundColor: '#1A1A1A' }}>
         <div className="max-w-3xl mx-auto">
           <h2 className="text-[48px] font-extrabold text-white leading-tight">
             Ready to bring Qaissar to your market?
