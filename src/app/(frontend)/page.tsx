@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { Button } from '@/components/ui/Button'
 import { Badge } from '@/components/ui/Badge'
 
@@ -78,9 +79,15 @@ export default function HomePage() {
 </div>
               </div>
 
-          {/* Right column — product image placeholder */}
-          <div className="h-[480px] rounded-[16px] bg-brand-gray-100 flex items-center justify-center">
-            <span className="text-brand-gray-500 text-[14px]">QB Mini Smart Amp</span>
+          {/* Right column — lifestyle hero image */}
+          <div className="relative h-[480px] lg:h-[560px] rounded-[16px] overflow-hidden">
+            <Image
+              src="/images/hero-shot.png"
+              alt="Business owner controlling Qaissar audio system from the Qaissar App"
+              fill
+              className="object-cover object-center"
+              priority
+            />
           </div>
 
         </div>
