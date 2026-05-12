@@ -50,46 +50,61 @@ export default function HomePage() {
   return (
     <>
       {/* ── SECTION 1: HERO ─────────────────────────────────────────── */}
-      <section className="bg-white px-6 lg:px-12 pt-16 pb-16 lg:pt-24 lg:pb-12">
-        <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-[55fr_45fr] gap-12 lg:gap-20 items-center">
+      <section
+        className="relative w-full overflow-hidden"
+        style={{ minHeight: 'calc(100vh - 64px)' }}
+      >
+        {/* Background image */}
+        <Image
+          src="/images/hero-shot.png"
+          alt="Business owner controlling Qaissar audio system"
+          fill
+          className="object-cover object-center"
+          priority
+        />
 
-          {/* Left column */}
-          <div>
-            <SectionLabel>Commercial Audio Ecosystem</SectionLabel>
+        {/* Dark overlay for text readability */}
+        <div
+          className="absolute inset-0"
+          style={{ background: 'linear-gradient(to right, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.1) 100%)' }}
+        />
 
-            <h1 className="text-[40px] lg:text-[64px] font-extrabold text-brand-black leading-[1.1] mt-4">
+        {/* Content */}
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 h-full flex items-center" style={{ minHeight: 'calc(100vh - 64px)' }}>
+          <div className="max-w-[600px]">
+
+            <p className="text-[14px] font-semibold uppercase tracking-[2px]" style={{ color: '#E31E24' }}>
+              Commercial Audio Ecosystem
+            </p>
+
+            <h1 className="text-[40px] lg:text-[64px] font-extrabold leading-[1.1] mt-4" style={{ color: '#FFFFFF' }}>
               Every prayer. Every announcement. Every space.
             </h1>
 
-            <p className="text-[24px] font-light text-brand-gray-500 mt-4">
+            <p className="text-[24px] font-light mt-4" style={{ color: 'rgba(255,255,255,0.8)' }}>
               One device. Every need.
             </p>
 
-            <p className="text-[16px] font-light text-brand-gray-800 max-w-[480px] mt-6 leading-relaxed">
-              Qaissar is the wireless commercial audio ecosystem for mosques, hotels, schools,
-              and retail spaces across Muslim-majority markets. Prayer time automation,
-              scheduled announcements, and background music — all from one app.
+            <p className="text-[16px] font-light max-w-[480px] mt-6 leading-relaxed" style={{ color: 'rgba(255,255,255,0.7)' }}>
+              Qaissar is the wireless commercial audio ecosystem
+              for mosques, hotels, schools, and retail spaces
+              across Muslim-majority markets. Prayer time automation,
+              scheduled announcements, and background music —
+              all from one app.
             </p>
 
-         <div className="flex flex-wrap items-center gap-8 mt-10">
-  <AzanPlayBadge />
-  <Button variant="ghost" size="lg" href="/products">
-    Explore Products →
-  </Button>
-</div>
-              </div>
+            <div className="flex flex-wrap items-center gap-8 mt-10">
+              <AzanPlayBadge />
+              <a
+                href="/products"
+                className="text-[16px] font-semibold hover:underline"
+                style={{ color: '#FFFFFF' }}
+              >
+                Explore Products →
+              </a>
+            </div>
 
-          {/* Right column — lifestyle hero image */}
-          <div className="relative h-[480px] lg:h-[560px] rounded-[16px] overflow-hidden">
-            <Image
-              src="/images/hero-shot.png"
-              alt="Business owner controlling Qaissar audio system from the Qaissar App"
-              fill
-              className="object-cover object-center"
-              priority
-            />
           </div>
-
         </div>
       </section>
 
