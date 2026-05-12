@@ -1,7 +1,9 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
+import { Speaker } from 'lucide-react'
 import { Badge } from '@/components/ui/Badge'
 
 type Category = 'All' | 'Smart Amplifiers' | 'Speakers'
@@ -12,6 +14,7 @@ type Product = {
   category: 'Smart Amplifiers' | 'Speakers'
   description: string
   status: 'available'
+  image?: string
 }
 
 const products: Product[] = [
@@ -22,14 +25,16 @@ const products: Product[] = [
     description:
       '90W wireless commercial amplifier with app control, prayer scheduling, and AI announcements.',
     status: 'available',
+    image: '/images/products/qb-mini/1.png',
   },
   {
-    slug: 'qaissar-ceiling-speaker',
-    name: 'Qaissar Ceiling Speaker',
+    slug: 'qaissar-cs-pro',
+    name: 'Qaissar CS Pro',
     category: 'Speakers',
     description:
       '6.5 inch 30W full range ceiling speaker for commercial spaces. Supports the QB Mini ecosystem.',
     status: 'available',
+    image: '/images/qcs-pro/1.png',
   },
   {
     slug: 'qaissar-wall-speaker',
@@ -77,11 +82,19 @@ export function ProductGrid() {
             href={`/products/${product.slug}`}
             className="group block hover:scale-[1.01] transition-transform duration-300"
           >
-            {/* Image placeholder */}
-            <div className="aspect-square rounded-[16px] bg-brand-gray-100 flex items-center justify-center">
-              <span className="text-brand-gray-500 text-[14px] text-center px-4">
-                {product.name}
-              </span>
+            {/* Image */}
+            <div className={`aspect-square rounded-[16px] overflow-hidden flex items-center justify-center ${product.image ? 'bg-white' : 'bg-brand-gray-100'}`}>
+              {product.image ? (
+                <Image
+                  src={product.image}
+                  width={600}
+                  height={600}
+                  alt={product.name}
+                  className="object-contain w-full h-full"
+                />
+              ) : (
+                <Speaker size={48} className="text-brand-gray-200" />
+              )}
             </div>
 
             {/* Product info */}

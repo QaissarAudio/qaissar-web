@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
+import { Speaker } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { Badge } from '@/components/ui/Badge'
 
@@ -369,8 +370,14 @@ export default function HomePage() {
 
             {/* Product 1 — QB Mini Smart Amp */}
             <div className="bg-white rounded-[16px] p-8">
-              <div className="aspect-square rounded-[12px] bg-brand-gray-200 flex items-center justify-center">
-                <span className="text-brand-gray-500 text-[14px] text-center px-4">QB Mini Smart Amp</span>
+              <div className="aspect-square rounded-[12px] bg-white overflow-hidden flex items-center justify-center">
+                <Image
+                  src="/images/products/qb-mini/1.png"
+                  width={600}
+                  height={400}
+                  alt="QB Mini Smart Amp"
+                  className="object-contain w-full h-full"
+                />
               </div>
               <h3 className="text-[20px] font-extrabold text-brand-black mt-6">QB Mini Smart Amp</h3>
               <p className="text-[14px] font-light text-brand-gray-500 mt-2 leading-relaxed">
@@ -386,10 +393,10 @@ export default function HomePage() {
 
             {/* Product 2 — Ceiling Speaker */}
             <div className="bg-white rounded-[16px] p-8">
-              <div className="aspect-square rounded-[12px] bg-brand-gray-200 flex items-center justify-center">
-                <span className="text-brand-gray-500 text-[14px] text-center px-4">Qaissar Ceiling Speaker</span>
+              <div className="aspect-square rounded-[12px] bg-white overflow-hidden flex items-center justify-center">
+                <Image src="/images/qcs-pro/1.png" width={600} height={600} alt="Qaissar CS Pro" className="object-contain w-full h-full" />
               </div>
-              <h3 className="text-[20px] font-extrabold text-brand-black mt-6">Qaissar Ceiling Speaker</h3>
+              <h3 className="text-[20px] font-extrabold text-brand-black mt-6">Qaissar CS Pro</h3>
               <p className="text-[14px] font-light text-brand-gray-500 mt-2 leading-relaxed">
                 6.5 inch 30W full range ceiling speaker for commercial spaces.
               </p>
@@ -403,8 +410,8 @@ export default function HomePage() {
 
             {/* Product 3 — Wall Speaker */}
             <div className="bg-white rounded-[16px] p-8">
-              <div className="aspect-square rounded-[12px] bg-brand-gray-200 flex items-center justify-center">
-                <span className="text-brand-gray-500 text-[14px] text-center px-4">Qaissar Wall Speaker</span>
+              <div className="aspect-square rounded-[12px] bg-brand-gray-100 flex items-center justify-center">
+                <Speaker size={48} className="text-brand-gray-200" />
               </div>
               <h3 className="text-[20px] font-extrabold text-brand-black mt-6">Qaissar Wall Speaker</h3>
               <p className="text-[14px] font-light text-brand-gray-500 mt-2 leading-relaxed">
