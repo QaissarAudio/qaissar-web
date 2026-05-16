@@ -2,28 +2,28 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans:   "Nunito Sans", sans-serif;
-  --font-arabic: "Changa", sans-serif;
+  --font-sans:    "Nunito Sans", sans-serif;
+  --font-arabic:  "Changa", sans-serif;
 
-  --color-brand-black: #1A1A1A;
-  --color-brand-white: #FFFFFF;
-  --color-brand-red:   #E31E24;
+  --color-brand-black:    #1A1A1A;
+  --color-brand-white:    #FFFFFF;
+  --color-brand-red:      #E31E24;
   --color-brand-gray-100: #F5F5F5;
   --color-brand-gray-200: #E8E8E8;
   --color-brand-gray-500: #888888;
   --color-brand-gray-800: #333333;
 
   /* Font scale */
-  --text-display:   3.75rem;
-  --text-h1:        3rem;
-  --text-h2:        2.25rem;
-  --text-h3:        1.5rem;
-  --text-h4:        1.25rem;
-  --text-body-lg:   1.125rem;
-  --text-body:      1rem;
-  --text-body-sm:   0.875rem;
-  --text-label:     0.8125rem;
-  --text-caption:   0.75rem;
+  --text-display:  3.75rem;
+  --text-h1:       3rem;
+  --text-h2:       2.25rem;
+  --text-h3:       1.5rem;
+  --text-h4:       1.25rem;
+  --text-body-lg:  1.125rem;
+  --text-body:     1rem;
+  --text-body-sm:  0.875rem;
+  --text-label:    0.8125rem;
+  --text-caption:  0.75rem;
 
   /* Line heights */
   --leading-tight:   1.1;
@@ -73,4 +73,10 @@
     line-height: var(--leading-tight);
     letter-spacing: var(--tracking-tight);
   }
+
+  h1 { font-size: var(--text-h1); }
+  h2 { font-size: var(--text-h2); }
+  h3 { font-size: var(--text-h3); }
+  h4 { font-size: var(--text-h4); }
+  p  { font-size: var(--text-body); }
 }

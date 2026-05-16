@@ -112,13 +112,13 @@ export default function AppPage() {
       {/* Hero */}
       <section className="bg-white pt-24 pb-16 text-center">
         <div className="max-w-4xl mx-auto px-6">
-          <span className="inline-block text-xs font-semibold uppercase tracking-widest text-brand-red mb-4">
+          <span className="inline-block text-[var(--text-caption)] font-semibold uppercase tracking-widest text-brand-red mb-4">
             Qaissar App
           </span>
-          <h1 className="text-4xl md:text-6xl font-extrabold text-brand-black leading-tight">
+          <h1 className="text-[var(--text-h2)] md:text-[var(--text-display)] font-extrabold text-brand-black leading-tight">
             Total Control. In Your Hands.
           </h1>
-          <p className="mt-6 text-lg text-brand-gray-500 font-light max-w-2xl mx-auto">
+          <p className="mt-6 text-[var(--text-body-lg)] text-brand-gray-500 font-light max-w-2xl mx-auto">
             Manage your entire audio system from anywhere. The Qaissar App puts scheduling,
             announcements, music, and live control at your fingertips — on iOS and Android.
           </p>
@@ -163,17 +163,17 @@ export default function AppPage() {
                   />
                 </div>
                 <div className={isEven ? 'md:order-2' : 'md:order-1'}>
-                  <span className="text-xs font-semibold uppercase tracking-widest text-brand-red">
+                  <span className="text-[var(--text-caption)] font-semibold uppercase tracking-widest text-brand-red">
                     {section.eyebrow}
                   </span>
-                  <h2 className="mt-3 text-2xl md:text-3xl font-extrabold text-brand-black leading-tight">
+                  <h2 className="mt-3 text-[var(--text-h3)] md:text-[var(--text-h2)] font-extrabold text-brand-black leading-tight">
                     {section.headline}
                   </h2>
-                  <p className="mt-4 text-base font-light text-brand-gray-500 leading-relaxed">
+                  <p className="mt-4 text-[var(--text-body)] font-light text-brand-gray-500 leading-relaxed">
                     {section.body}
                   </p>
                   {section.note === 'azanplay' && (
-                    <span className="inline-block mt-4 bg-brand-gray-100 text-brand-gray-500 text-xs px-3 py-1 rounded-full">
+                    <span className="inline-block mt-4 bg-brand-gray-100 text-brand-gray-500 text-[var(--text-caption)] px-3 py-1 rounded-full">
                       Powered by AzanPlay
                     </span>
                   )}
@@ -187,18 +187,18 @@ export default function AppPage() {
       {/* Features Grid */}
       <section className="bg-white py-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 text-center">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-brand-black">
+          <h2 className="text-[var(--text-h2)] font-extrabold text-brand-black">
             Everything You Need. One App.
           </h2>
-          <p className="mt-4 text-lg font-light text-brand-gray-500 max-w-xl mx-auto">
+          <p className="mt-4 text-[var(--text-body-lg)] font-light text-brand-gray-500 max-w-xl mx-auto">
             Available free on iOS and Android for all Qaissar QB Series devices.
           </p>
           <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 text-left">
             {gridTiles.map(({ icon: Icon, label, description }) => (
               <div key={label} className="bg-brand-gray-100 rounded-2xl p-6">
                 <Icon size={28} className="text-brand-red" />
-                <p className="mt-3 font-semibold text-brand-black text-sm">{label}</p>
-                <p className="mt-1 text-xs text-brand-gray-500 font-light">{description}</p>
+                <p className="mt-3 font-semibold text-brand-black text-[var(--text-body-sm)]">{label}</p>
+                <p className="mt-1 text-[var(--text-caption)] text-brand-gray-500 font-light">{description}</p>
               </div>
             ))}
           </div>
@@ -208,10 +208,10 @@ export default function AppPage() {
       {/* Download CTA */}
       <section className="bg-brand-black py-20 text-center">
         <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-white">
+          <h2 className="text-[var(--text-h2)] font-extrabold text-white">
             Download the Qaissar App
           </h2>
-          <p className="mt-4 text-lg font-light text-brand-gray-500">
+          <p className="mt-4 text-[var(--text-body-lg)] font-light text-brand-gray-500">
             Free for iOS and Android. Works with all QB Series devices.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
@@ -227,7 +227,7 @@ export default function AppPage() {
               Get it on Google Play
             </Button>
           </div>
-          <p className="mt-6 text-xs text-brand-gray-500">
+          <p className="mt-6 text-[var(--text-caption)] text-brand-gray-500">
             App Store and Google Play links coming soon.
           </p>
         </div>

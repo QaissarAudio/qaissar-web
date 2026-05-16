@@ -42,7 +42,7 @@ export function Badge({ variant, children, className = '' }: BadgeProps) {
 
   return (
     <span
-      className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold ${className}`}
+      className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[var(--text-caption)] font-semibold ${className}`}
       style={{ color: textColor, backgroundColor: bgColor }}
     >
       <span

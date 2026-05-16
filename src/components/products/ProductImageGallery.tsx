@@ -45,7 +45,7 @@ export function ProductImageGallery({
               type="button"
               onClick={() => handleColourChange(colour)}
               className={[
-                'px-4 py-1 text-sm font-semibold rounded-full transition-colors duration-150 capitalize',
+                'px-4 py-1 text-[var(--text-body-sm)] font-semibold rounded-full transition-colors duration-150 capitalize',
                 activeColour === colour
                   ? 'bg-brand-black text-white'
                   : 'border border-brand-gray-200 text-brand-gray-500 hover:border-brand-black hover:text-brand-black',

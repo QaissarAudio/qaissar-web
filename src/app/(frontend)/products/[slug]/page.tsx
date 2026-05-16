@@ -649,7 +649,7 @@ export default async function ProductDetailPage({ params }: Props) {
               <button
                 disabled
                 title="Coming soon"
-                className="inline-flex items-center justify-center font-semibold transition-colors duration-150 px-8 py-4 text-lg bg-transparent text-brand-black border border-[1.5px] border-brand-black cursor-not-allowed opacity-50"
+                className="inline-flex items-center justify-center font-semibold transition-colors duration-150 px-8 py-4 text-[var(--text-body-lg)] bg-transparent text-brand-black border border-[1.5px] border-brand-black cursor-not-allowed opacity-50"
                 style={{ fontFamily: '"Nunito Sans", sans-serif', fontWeight: 600 }}
               >
                 Download Datasheet
