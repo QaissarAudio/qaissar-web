@@ -37,12 +37,13 @@ const products: Product[] = [
     image: '/images/qcs-pro/1.png',
   },
   {
-    slug: 'qaissar-wall-speaker',
-    name: 'Qaissar Wall Speaker',
+    slug: 'qaissar-ws-pro',
+    name: 'Qaissar WS Pro',
     category: 'Speakers',
     description:
-      '50W to 150W wall mounted speaker. Compact, powerful, and built for commercial environments.',
+      '50W to 150W wall mounted speaker in black and white, with an adjustable bracket.',
     status: 'available',
+    image: '/images/ws-pro/1.png',
   },
 ]
 

@@ -30,30 +30,30 @@ export function QaissarLogo({ size = 'md', variant = 'dark', className }: Qaissa
       style={{ display: 'inline-flex', alignItems: 'center', gap: gapMap[size] }}
     >
       <svg
-        width={width}
-        height={height}
-        viewBox="180 220 680 600"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        aria-hidden="true"
-      >
-        {/* Black ring */}
-        <circle
-          cx="450"
-          cy="480"
-          r="220"
-          fill="none"
-          stroke={brandColor}
-          strokeWidth="90"
-        />
-        {/* Red dot — bottom right, outside ring */}
-        <circle
-          cx="770"
-          cy="670"
-          r="80"
-          fill="#E31E24"
-        />
-      </svg>
+  width={width}
+  height={height}
+  viewBox="180 190 680 630"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+>
+  {/* Black ring */}
+  <circle
+    cx="450"
+    cy="480"
+    r="220"
+    fill="none"
+    stroke={brandColor}
+    strokeWidth="90"
+  />
+  {/* Red dot — bottom right, outside ring */}
+  <circle
+    cx="770"
+    cy="670"
+    r="80"
+    fill="#E31E24"
+  />
+</svg>
 
       {/* Wordmark */}
       <span

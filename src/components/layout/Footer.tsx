@@ -40,7 +40,7 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
 
         {/* Top row */}
-        <div className="flex items-center justify-between pt-0 pb-5">
+        <div className="flex items-center justify-between pt-5 pb-5">
           <QaissarLogo size="md" variant="light" />
           <p className="text-brand-gray-500 font-light text-sm">The commercial audio ecosystem.</p>
         </div>

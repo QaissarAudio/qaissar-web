@@ -46,8 +46,14 @@ interface EditorialSection {
   eyebrow: string
   headline: string
   body: string
-  image: string
-  imageAlt: string
+  image?: string
+  imageAlt?: string
+  gifSrc?: string
+  gifAlt?: string
+  imagePair?: {
+    left: { src: string; alt: string }
+    right: { src: string; alt: string }
+  }
   imagePosition: 'left' | 'right'
   bg: 'bg-white' | 'bg-brand-gray-100'
   bullets?: string[]
@@ -315,10 +321,10 @@ const productMap: Record<string, ProductData | undefined> = {
         description: '6.5 inch 30W full range ceiling speaker for commercial spaces.',
       },
       {
-        slug: 'qaissar-wall-speaker',
-        name: 'Qaissar Wall Speaker',
+        slug: 'qaissar-ws-pro',
+        name: 'Qaissar WS Pro',
         category: 'Speakers',
-        description: '50W to 150W wall mounted speaker, compact and powerful.',
+        description: '50W to 150W wall mounted speaker in black and white, with an adjustable bracket.',
       },
     ],
     metadata: {
@@ -434,10 +440,10 @@ const productMap: Record<string, ProductData | undefined> = {
         image: '/images/products/qb-mini/1.png',
       },
       {
-        slug: 'qaissar-wall-speaker',
-        name: 'Qaissar Wall Speaker',
+        slug: 'qaissar-ws-pro',
+        name: 'Qaissar WS Pro',
         category: 'Speakers',
-        description: '50W to 150W wall mounted speaker, compact and powerful.',
+        description: '50W to 150W wall mounted speaker in black and white, with an adjustable bracket.',
       },
     ],
     metadata: {
@@ -446,11 +452,11 @@ const productMap: Record<string, ProductData | undefined> = {
     },
   },
 
-  'qaissar-wall-speaker': {
-    name: 'Qaissar Wall Speaker',
+  'qaissar-ws-pro': {
+    name: 'Qaissar WS Pro',
     category: 'Speakers',
     description:
-      'A compact, high-output wall speaker available in 50W, 60W, and 150W configurations. Designed for demanding commercial environments where space is limited but performance cannot be compromised.',
+      'A high-output commercial wall speaker available in black and white, with an adjustable bracket for flexible installation. The Qaissar WS Pro delivers serious power — 50W, 60W, or 150W — from a compact, elegant enclosure.',
     specItems: [
       { label: 'Power Options', value: '50/60/150W' },
       { label: 'Configurations', value: '3 Options' },
@@ -458,10 +464,11 @@ const productMap: Record<string, ProductData | undefined> = {
       { label: 'Mounting', value: 'Wall Bracket' },
     ],
     galleryImages: [
-      { src: '/images/products/qaissar-wall-speaker/1.png', alt: 'Qaissar Wall Speaker — main angle' },
-      { src: '/images/products/qaissar-wall-speaker/2.png', alt: 'Qaissar Wall Speaker — front view' },
-      { src: '/images/products/qaissar-wall-speaker/3.png', alt: 'Qaissar Wall Speaker — mounting' },
-      { src: '/images/products/qaissar-wall-speaker/4.png', alt: 'Qaissar Wall Speaker — ecosystem' },
+      { src: '/images/ws-pro/1.png', alt: 'Qaissar WS Pro — Black' },
+      { src: '/images/ws-pro/2.png', alt: 'Qaissar WS Pro — White' },
+      { src: '/images/ws-pro/3.png', alt: 'Qaissar WS Pro — Back panel black' },
+      { src: '/images/ws-pro/4.png', alt: 'Qaissar WS Pro — Back panel white' },
+      { src: '/images/ws-pro/5.png', alt: 'Qaissar WS Pro — Installed on wall' },
     ],
     featureIcons: [
       { label: 'Up to 150W', icon: <Zap size={28} /> },
@@ -477,27 +484,29 @@ const productMap: Record<string, ProductData | undefined> = {
       {
         eyebrow: 'High Output',
         headline: 'Power Where You Need It.',
-        body: 'Available in 50W, 60W, and 150W versions, the Qaissar Wall Speaker delivers serious output from a compact enclosure. Engineered for large halls, courtyards, and outdoor-adjacent spaces where ceiling mounting is not an option.',
-        image: '/images/products/qaissar-wall-speaker/2.png',
-        imageAlt: 'Qaissar Wall Speaker — front view',
+        body: 'Available in 50W, 60W, and 150W versions, the Qaissar WS Pro delivers serious output from a compact enclosure. Engineered for large halls, courtyards, and outdoor-adjacent spaces where ceiling mounting is not an option.',
+        image: '/images/ws-pro/5.png',
+        imageAlt: 'Qaissar WS Pro installed on wall',
         imagePosition: 'left',
         bg: 'bg-white',
       },
       {
-        eyebrow: 'Flexible Configuration',
-        headline: 'Choose Your Power Level.',
-        body: 'Three wattage options let you match the speaker to the space — 50W for medium rooms, 60W for larger halls, and 150W for expansive outdoor or courtyard environments. All three share the same compact wall-mount form factor.',
-        image: '/images/products/qaissar-wall-speaker/3.png',
-        imageAlt: 'Qaissar Wall Speaker — mounting',
+        eyebrow: 'Flexibility',
+        headline: 'The Perfect Fit for Any Project.',
+        body: 'Whether space is tight or you want to achieve a certain look, the Qaissar WS Pro integrates seamlessly into any environment. A compact form factor that disappears into the space — leaving only the sound.',
+        gifSrc: '/images/ws-pro/bracket-animation.gif',
+        gifAlt: 'WS Pro bracket flexibility animation',
         imagePosition: 'right',
         bg: 'bg-brand-gray-100',
       },
       {
-        eyebrow: 'System Integration',
-        headline: 'Works with the QB Mini System.',
-        body: 'Integrate seamlessly with the QB Mini Smart Amp for full app-controlled audio management. Schedule prayer times, push announcements, and manage volume — all from the Qaissar App without touching the hardware.',
-        image: '/images/products/qaissar-wall-speaker/4.png',
-        imageAlt: 'Qaissar Wall Speaker — ecosystem',
+        eyebrow: 'Adjustable Design',
+        headline: 'Any Angle. Any Direction.',
+        body: 'The WS Pro bracket pivots to face sound exactly where it needs to go. Tilt up, tilt down, or rotate horizontally — the adjustable mount gives you complete control over coverage without moving the speaker.',
+        imagePair: {
+          left: { src: '/images/ws-pro/6.png', alt: 'Qaissar WS Pro — bracket tilted' },
+          right: { src: '/images/ws-pro/7.png', alt: 'Qaissar WS Pro — bracket angled' },
+        },
         imagePosition: 'left',
         bg: 'bg-white',
       },
@@ -528,7 +537,7 @@ const productMap: Record<string, ProductData | undefined> = {
           { label: 'Dimensions (50W/60W)', value: '260 x 180 x 160mm' },
           { label: 'Dimensions (150W)', value: '340 x 220 x 195mm' },
           { label: 'Enclosure', value: 'ABS + Metal Bracket' },
-          { label: 'Colour', value: 'White / Black (available)' },
+          { label: 'Colour', value: 'Black / White' },
           { label: 'Weight', value: '2.1kg (50W/60W) / 3.8kg (150W)' },
         ],
       },
@@ -558,8 +567,8 @@ const productMap: Record<string, ProductData | undefined> = {
       },
     ],
     metadata: {
-      title: 'Qaissar Wall Speaker — Commercial Audio',
-      description: 'Compact wall speaker in 50W, 60W, and 150W options for demanding commercial audio environments.',
+      title: 'Qaissar WS Pro — Commercial Wall Speaker',
+      description: 'High-output wall speaker in 50W, 60W, and 150W. Available in black and white. Adjustable bracket for any installation.',
     },
   },
 }
@@ -603,7 +612,12 @@ export default async function ProductDetailPage({ params }: Props) {
       <section className="py-12 px-6 lg:px-12">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
-          <ProductImageGallery images={product.galleryImages} />
+          <ProductImageGallery
+            images={product.galleryImages}
+            colourGroups={slug === 'qaissar-ws-pro'
+              ? { black: [0, 2, 4], white: [1, 3] }
+              : undefined}
+          />
 
           <div>
             <p className="text-brand-red text-[13px] font-semibold uppercase tracking-[2px]">
@@ -671,11 +685,40 @@ export default async function ProductDetailPage({ params }: Props) {
 
       {/* ── SECTION 4: EDITORIAL SECTIONS ────────────────────────────── */}
       {product.editorialSections.map((section) => {
-        const imageCol = (
+        const imageCol = section.gifSrc ? (
+          <div className="relative aspect-square rounded-[16px] overflow-hidden bg-white">
+            <img
+              src={section.gifSrc}
+              alt={section.gifAlt ?? ''}
+              className="w-full h-full object-contain"
+            />
+          </div>
+        ) : section.imagePair ? (
+          <div className="grid grid-cols-2 gap-3">
+            <div className="rounded-xl overflow-hidden bg-white">
+              <Image
+                src={section.imagePair.left.src}
+                alt={section.imagePair.left.alt}
+                width={600}
+                height={600}
+                className="object-contain w-full h-auto"
+              />
+            </div>
+            <div className="rounded-xl overflow-hidden bg-white">
+              <Image
+                src={section.imagePair.right.src}
+                alt={section.imagePair.right.alt}
+                width={600}
+                height={600}
+                className="object-contain w-full h-auto"
+              />
+            </div>
+          </div>
+        ) : (
           <div className="relative aspect-square rounded-[16px] overflow-hidden bg-white">
             <Image
-              src={section.image}
-              alt={section.imageAlt}
+              src={section.image!}
+              alt={section.imageAlt!}
               fill
               className="object-contain"
               sizes="(max-width: 1024px) 100vw, 50vw"
