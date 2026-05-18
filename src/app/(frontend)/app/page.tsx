@@ -1,6 +1,10 @@
 import type { Metadata } from 'next'
 import { Button } from '@/components/ui/Button'
 import AppImage from '@/components/app/AppImage'
+import { PrayerSchedulingSection } from '@/components/app/PrayerSchedulingSection'
+import { TTSAnnouncementsSection } from '@/components/app/TTSAnnouncementsSection'
+import { SourceControlSection } from '@/components/app/SourceControlSection'
+import QaissarLogo from '@/components/logo/QaissarLogo'
 import type { LucideIcon } from 'lucide-react'
 import {
   Clock,
@@ -110,50 +114,158 @@ export default function AppPage() {
   return (
     <main>
       {/* Hero */}
-      <section className="bg-white pt-24 pb-16 text-center">
-        <div className="max-w-4xl mx-auto px-6">
-          <span className="inline-block text-[var(--text-caption)] font-semibold uppercase tracking-widest text-brand-red mb-4">
-            Qaissar App
-          </span>
-          <h1 className="text-[var(--text-h2)] md:text-[var(--text-display)] font-extrabold text-brand-black leading-tight">
-            Total Control. In Your Hands.
-          </h1>
-          <p className="mt-6 text-[var(--text-body-lg)] text-brand-gray-500 font-light max-w-2xl mx-auto">
-            Manage your entire audio system from anywhere. The Qaissar App puts scheduling,
-            announcements, music, and live control at your fingertips — on iOS and Android.
-          </p>
-          <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+      <section
+        className="relative overflow-hidden"
+       style={{ minHeight: '560px' }}
+      >
+        {/* Layer 1 — Background image with Ken Burns zoom */}
+        <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
+          <img
+            src="/images/app/hero-bg.png"
+            alt=""
+            aria-hidden="true"
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              objectPosition: 'center',
+              animation: 'hero-zoom 16s ease-in-out infinite alternate',
+            }}
+          />
+        </div>
+
+        {/* Layer 2 — Dark gradient overlay (left-heavy) */}
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            zIndex: 1,
+            background:
+              'linear-gradient(90deg, rgba(15,12,8,0.95) 0%, rgba(15,12,8,0.80) 40%, rgba(15,12,8,0.30) 70%, rgba(15,12,8,0.10) 100%)',
+          }}
+        />
+        {/* Bottom fade */}
+        <div
+          style={{
+            position: 'absolute',
+            bottom: 0,
+            left: 0,
+            right: 0,
+            height: '120px',
+            zIndex: 1,
+            background: 'linear-gradient(to bottom, transparent, rgba(255,255,255,0.08))',
+          }}
+        />
+
+        {/* Layer 3 — Content */}
+        <div className="h-full flex flex-col" style={{ position: 'relative', zIndex: 2 }}>
+          <div
+            className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 items-center max-w-7xl mx-auto px-6 lg:px-12 py-16 md:py-0 md:h-full"
+          >
+            {/* Left — Text */}
+            <div>
+              <span
+                className="block text-center md:text-left"
+                style={{
+                  fontSize: 'var(--text-label)',
+                  fontWeight: 600,
+                  letterSpacing: '0.12em',
+                  textTransform: 'uppercase',
+                  color: '#E31E24',
+                  marginBottom: '1rem',
+                }}
+              >
+                Qaissar App
+              </span>
+              <h1
+                className="text-center md:text-left"
+                style={{
+                  fontSize: 'clamp(1.75rem, 3vw, var(--text-h1))',
+                  fontWeight: 800,
+                  color: '#FFFFFF',
+                  lineHeight: 1.15,
+                  margin: '0 0 1.25rem',
+                  letterSpacing: '-0.02em',
+                }}
+              >
+                A smart commercial audio system that automates daily operations.
+              </h1>
+              <p
+                className="hidden md:block"
+                style={{
+                  fontSize: 'var(--text-body-lg)',
+                  color: 'rgba(255,255,255,0.55)',
+                  fontWeight: 300,
+                  lineHeight: 1.65,
+                  margin: '0 0 2rem',
+                  maxWidth: '420px',
+                }}
+              >
+                The Qaissar App and QB Mini work together to remove manual audio work from your
+                business — permanently.
+              </p>
+              {/* Buttons — desktop only */}
+              <div className="hidden md:flex gap-3 flex-wrap">
+                <Button variant="primary" size="md" href="#">
+                  Download on App Store
+                </Button>
+                <Button
+                  variant="secondary"
+                  size="md"
+                  href="#"
+                  className="hero-btn-ghost"
+                >
+                  Get it on Google Play
+                </Button>
+              </div>
+            </div>
+
+            {/* Right — Phone mockup */}
+            <div className="flex justify-center items-center">
+              <img
+                src="/images/app/hero-phone.png"
+                alt="Qaissar App interface"
+                style={{
+                  height: 'auto',
+                  objectFit: 'contain',
+                  filter: 'drop-shadow(0 24px 48px rgba(0,0,0,0.5))',
+                  display: 'block',
+                }}
+                className="w-[200px] md:w-[260px]"
+              />
+            </div>
+          </div>
+
+          {/* Buttons — mobile only, below phone */}
+          <div className="flex md:hidden flex-col gap-3 px-6 pb-8 items-center">
             <Button variant="primary" size="md" href="#">
               Download on App Store
             </Button>
-            <Button variant="secondary" size="md" href="#">
+            <Button
+              variant="secondary"
+              size="md"
+              href="#"
+              className="hero-btn-ghost"
+            >
               Get it on Google Play
             </Button>
-          </div>
-          <div className="mt-12 flex justify-center">
-            <AppImage
-              src="/images/app/hero.png"
-              width={400}
-              height={800}
-              alt="Qaissar App on iOS and Android"
-              className="w-[320px] h-[640px] md:w-[400px] md:h-[800px] object-contain drop-shadow-2xl"
-            />
           </div>
         </div>
       </section>
 
       {/* Feature Sections */}
-      {featureSections.map((section, i) => {
-        const isEven = i % 2 === 0
+      <PrayerSchedulingSection />
+      <TTSAnnouncementsSection />
+      <SourceControlSection />
+      {featureSections.slice(1).map((section, i) => {
+        const actualIndex = i + 1
+        if (actualIndex === 1 || actualIndex === 2) return null
+        const isEven = actualIndex % 2 === 0
         return (
           <section key={section.eyebrow} className={`${isEven ? 'bg-white' : 'bg-brand-gray-100'} py-20`}>
             <div className="max-w-7xl mx-auto px-6 lg:px-12">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <div
-                  className={`flex justify-center bg-white rounded-2xl p-6 ${
-                    isEven ? 'md:order-1' : 'md:order-2'
-                  }`}
-                >
+                <div className={`flex justify-center bg-white rounded-2xl p-6 ${isEven ? 'md:order-1' : 'md:order-2'}`}>
                   <AppImage
                     src={section.image}
                     width={480}

@@ -80,3 +80,30 @@
   h4 { font-size: var(--text-h4); }
   p  { font-size: var(--text-body); }
 }
+
+@keyframes scroll-image {
+  0%   { transform: translateY(0%); }
+  20%  { transform: translateY(0%); }
+  70%  { transform: translateY(-50%); }
+  80%  { transform: translateY(-50%); }
+  100% { transform: translateY(0%); }
+}
+
+.animate-scroll-image {
+  animation: scroll-image 8s ease-in-out infinite;
+}
+
+@keyframes hero-zoom {
+  0%   { transform: scale(1) translateX(0px); }
+  100% { transform: scale(1.12) translateX(-20px); }
+}
+
+.hero-btn-ghost {
+  border-color: rgba(255, 255, 255, 0.30) !important;
+  color: rgba(255, 255, 255, 0.80) !important;
+}
+
+.hero-btn-ghost:hover {
+  background-color: rgba(255, 255, 255, 0.10) !important;
+  color: #ffffff !important;
+}
