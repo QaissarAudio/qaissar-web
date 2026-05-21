@@ -96,7 +96,7 @@ export default function DistributorPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             {/* Left col */}
             <div className="lg:col-span-5">
-              <span className="text-brand-red text-[var(--text-label)] font-semibold uppercase tracking-wider">
+              <span className="text-brand-red text-[var(--text-body-sm)] font-semibold uppercase tracking-wider">
                 Apply Now
               </span>
               <h2 className="text-[var(--text-h2)] font-extrabold text-brand-black mt-2">

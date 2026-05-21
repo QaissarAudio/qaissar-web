@@ -3,8 +3,8 @@ import { Button } from '@/components/ui/Button'
 import AppImage from '@/components/app/AppImage'
 import { PrayerSchedulingSection } from '@/components/app/PrayerSchedulingSection'
 import { TTSAnnouncementsSection } from '@/components/app/TTSAnnouncementsSection'
+import { SchedulingSection } from '@/components/app/SchedulingSection'
 import { SourceControlSection } from '@/components/app/SourceControlSection'
-import QaissarLogo from '@/components/logo/QaissarLogo'
 import type { LucideIcon } from 'lucide-react'
 import {
   Clock,
@@ -110,6 +110,7 @@ const gridTiles: GridTile[] = [
   { icon: RefreshCw, label: 'Firmware Updates', description: 'Stay updated automatically' },
 ]
 
+
 export default function AppPage() {
   return (
     <main>
@@ -121,7 +122,7 @@ export default function AppPage() {
         {/* Layer 1 — Background image with Ken Burns zoom */}
         <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
           <img
-            src="/images/app/hero-bg.png"
+            src="/images/app/hero-bg.jpg"
             alt=""
             aria-hidden="true"
             style={{
@@ -140,8 +141,7 @@ export default function AppPage() {
             position: 'absolute',
             inset: 0,
             zIndex: 1,
-            background:
-              'linear-gradient(90deg, rgba(15,12,8,0.95) 0%, rgba(15,12,8,0.80) 40%, rgba(15,12,8,0.30) 70%, rgba(15,12,8,0.10) 100%)',
+         background: 'linear-gradient(90deg, rgba(15,12,8,0.75) 0%, rgba(15,12,8,0.40) 35%, rgba(15,12,8,0.05) 60%, rgba(15,12,8,0.00) 100%)',
           }}
         />
         {/* Bottom fade */}
@@ -160,18 +160,22 @@ export default function AppPage() {
         {/* Layer 3 — Content */}
         <div className="h-full flex flex-col" style={{ position: 'relative', zIndex: 2 }}>
           <div
-            className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 items-center max-w-7xl mx-auto px-6 lg:px-12 py-16 md:py-0 md:h-full"
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 items-start max-w-7xl mx-auto px-6 lg:px-12 py-16 md:py-20"
+          //className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 items-start max-w-7xl mx-auto px-6 lg:px-12 py-16 md:py-24 md:h-full"
+          // className="grid grid-cols-1 md:grid-cols-6 gap-2 md:gap-12 items-center max-w-7xl mx-auto px-6 lg:px-12 py-16 md:pt-16 md:pb-0 md:h-full"
+           // className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 items-center max-w-7xl mx-auto px-6 lg:px-12 py-16 md:py-0 md:h-full"
           >
             {/* Left — Text */}
             <div>
               <span
                 className="block text-center md:text-left"
                 style={{
-                  fontSize: 'var(--text-label)',
+                 fontSize: 'var(--text-h3)',
                   fontWeight: 600,
                   letterSpacing: '0.12em',
                   textTransform: 'uppercase',
                   color: '#E31E24',
+                  marginTop: '1rem',
                   marginBottom: '1rem',
                 }}
               >
@@ -185,6 +189,7 @@ export default function AppPage() {
                   color: '#FFFFFF',
                   lineHeight: 1.15,
                   margin: '0 0 1.25rem',
+                   marginBottom: '1rem',
                   letterSpacing: '-0.02em',
                 }}
               >
@@ -228,7 +233,7 @@ export default function AppPage() {
                 style={{
                   height: 'auto',
                   objectFit: 'contain',
-                  filter: 'drop-shadow(0 24px 48px rgba(0,0,0,0.5))',
+                 filter: 'drop-shadow(0 16px 24px rgba(0,0,0,0.3))',
                   display: 'block',
                 }}
                 className="w-[200px] md:w-[260px]"
@@ -253,13 +258,14 @@ export default function AppPage() {
         </div>
       </section>
 
-      {/* Feature Sections */}
+   
       <PrayerSchedulingSection />
       <TTSAnnouncementsSection />
+      <SchedulingSection />
       <SourceControlSection />
       {featureSections.slice(1).map((section, i) => {
         const actualIndex = i + 1
-        if (actualIndex === 1 || actualIndex === 2) return null
+        if (actualIndex === 1 || actualIndex === 2 || actualIndex >= 3) return null
         const isEven = actualIndex % 2 === 0
         return (
           <section key={section.eyebrow} className={`${isEven ? 'bg-white' : 'bg-brand-gray-100'} py-20`}>
@@ -275,7 +281,7 @@ export default function AppPage() {
                   />
                 </div>
                 <div className={isEven ? 'md:order-2' : 'md:order-1'}>
-                  <span className="text-[var(--text-caption)] font-semibold uppercase tracking-widest text-brand-red">
+                  <span className="text-[var(--text-body-sm)] font-semibold uppercase tracking-widest text-brand-red">
                     {section.eyebrow}
                   </span>
                   <h2 className="mt-3 text-[var(--text-h3)] md:text-[var(--text-h2)] font-extrabold text-brand-black leading-tight">
@@ -295,9 +301,8 @@ export default function AppPage() {
           </section>
         )
       })}
-
-      {/* Features Grid */}
-      <section className="bg-white py-20">
+   {/* Features Grid */}
+      <section className="bg-white pt-15 pb-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 text-center">
           <h2 className="text-[var(--text-h2)] font-extrabold text-brand-black">
             Everything You Need. One App.
@@ -305,9 +310,9 @@ export default function AppPage() {
           <p className="mt-4 text-[var(--text-body-lg)] font-light text-brand-gray-500 max-w-xl mx-auto">
             Available free on iOS and Android for all Qaissar QB Series devices.
           </p>
-          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 text-left">
+          <div className="mt-12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 text-left">
             {gridTiles.map(({ icon: Icon, label, description }) => (
-              <div key={label} className="bg-brand-gray-100 rounded-2xl p-6">
+              <div key={label} className="bg-brand-gray-100 rounded-xl p-5 flex flex-col gap-3">
                 <Icon size={28} className="text-brand-red" />
                 <p className="mt-3 font-semibold text-brand-black text-[var(--text-body-sm)]">{label}</p>
                 <p className="mt-1 text-[var(--text-caption)] text-brand-gray-500 font-light">{description}</p>
@@ -317,6 +322,7 @@ export default function AppPage() {
         </div>
       </section>
 
+      {/* Feature Sections */}
       {/* Download CTA */}
       <section className="bg-brand-black py-20 text-center">
         <div className="max-w-4xl mx-auto px-6">

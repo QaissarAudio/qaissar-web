@@ -74,7 +74,7 @@ export default function HomePage() {
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 h-full flex items-center" style={{ minHeight: 'calc(100vh - 64px)' }}>
           <div className="max-w-[600px]">
 
-            <p className="text-[14px] font-semibold uppercase tracking-[2px]" style={{ color: '#E31E24' }}>
+            <p className="text-[18px] font-semibold uppercase tracking-[2px]" style={{ color: '#E31E24' }}>
               Commercial Audio Ecosystem
             </p>
 
@@ -240,7 +240,7 @@ export default function HomePage() {
                   boxShadow: '0 24px 48px rgba(0,0,0,0.15)',
                 }}
               >
-                <span className="text-white text-[14px]">Qaissar App</span>
+                <span className="text-white text-[14px]">Qaissar App2</span>
               </div>
             </div>
 
