@@ -16,7 +16,8 @@
       "Bash(Get-ChildItem -Path \"D:\\\\Projects\\\\qaissar-web\\\\src\\\\components\\\\ui\" -ErrorAction SilentlyContinue)",
       "Bash(Select-Object Name)",
       "Bash(Get-ChildItem -Path \"D:\\\\Projects\\\\qaissar-web\\\\public\\\\images\" -Recurse -ErrorAction SilentlyContinue)",
-      "Bash(Select-Object FullName, PSIsContainer)"
+      "Bash(Select-Object FullName, PSIsContainer)",
+      "PowerShell(Copy-Item *)"
     ]
   }
 }
