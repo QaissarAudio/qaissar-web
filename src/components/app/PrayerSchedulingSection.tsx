@@ -36,7 +36,7 @@ export function PrayerSchedulingSection() {
                   src="/images/app/prayer-phone.png"
                   alt="AzanPlay prayer scheduling on iPhone"
                   style={{
-                    width: '275px',
+                    width: '270px',
                     height: 'auto',
                     marginLeft: '-30px',
                     display: 'block',
@@ -46,168 +46,21 @@ export function PrayerSchedulingSection() {
               </div>
 
               {/* Layer 3 — Floating prayer cards */}
-              <div style={{
-                position: 'relative',
-                zIndex: 2,
-                marginLeft: '-63px',
-                marginTop: '50px',
-                flexShrink: 0,
-                width: '235px',
-                background: '#2D3148',
-                borderRadius: '18px',
-                padding: '15px',
-                boxShadow: '-6px 12px 28px rgba(0,0,0,0.22)',
-              }}>
-
-                {/* Active Now label */}
-                <div style={{
-                  fontSize: '13px',
-                  fontWeight: 700,
-                  color: '#E31E24',
-                  marginBottom: '14px',
-                  letterSpacing: '0.01em',
-                }}>
-                  Active Now
-                </div>
-
-                {/* Row 1 — Prayer name + time + toggle */}
-                <div style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                  marginBottom: '16px',
-                }}>
-                  <span style={{
-                    fontSize: '16px',
-                    fontWeight: 600,
-                    color: '#ffffff',
-                  }}>
-                    Dhuhr
-                  </span>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                    <span style={{
-                      background: '#3D4260',
-                      borderRadius: '999px',
-                      padding: '4px 12px',
-                      fontSize: '13px',
-                      fontWeight: 500,
-                      color: 'rgba(255,255,255,0.8)',
-                    }}>
-                      12:13
-                    </span>
-                    {/* Toggle — ON state */}
-                    <div style={{
-                      width: '44px',
-                      height: '26px',
-                      background: '#E31E24',
-                      borderRadius: '999px',
-                      position: 'relative',
-                      flexShrink: 0,
-                    }}>
-                      <div style={{
-                        position: 'absolute',
-                        right: '3px',
-                        top: '3px',
-                        width: '20px',
-                        height: '20px',
-                        background: '#ffffff',
-                        borderRadius: '50%',
-                      }} />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Row 2 — Mute Before / After */}
-                <div style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  marginBottom: '16px',
-                }}>
-                  <span style={{
-                    fontSize: '13px',
-                    fontWeight: 400,
-                    color: 'rgba(255,255,255,0.6)',
-                  }}>
-                    Mute: Before
-                  </span>
-                  <span style={{
-                    background: '#3D4260',
-                    borderRadius: '999px',
-                    padding: '3px 12px',
-                    fontSize: '13px',
-                    fontWeight: 600,
-                    color: '#ffffff',
-                  }}>
-                    3
-                  </span>
-                  <span style={{
-                    fontSize: '13px',
-                    fontWeight: 400,
-                    color: 'rgba(255,255,255,0.6)',
-                  }}>
-                    After :
-                  </span>
-                  <span style={{
-                    background: '#3D4260',
-                    borderRadius: '999px',
-                    padding: '3px 12px',
-                    fontSize: '13px',
-                    fontWeight: 600,
-                    color: '#ffffff',
-                  }}>
-                    5
-                  </span>
-                </div>
-
-                {/* Row 3 — Azan Sound */}
-                <div style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                }}>
-                  <span style={{
-                    fontSize: '13px',
-                    fontWeight: 400,
-                    color: 'rgba(255,255,255,0.6)',
-                  }}>
-                    Azan Sound
-                  </span>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    {/* Dropdown pill */}
-                    <div style={{
-                      background: '#3D4260',
-                      borderRadius: '8px',
-                      padding: '5px 12px',
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '6px',
-                      fontSize: '13px',
-                      fontWeight: 500,
-                      color: '#ffffff',
-                    }}>
-                      Azan1
-                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" strokeWidth="2.5" strokeLinecap="round"><polyline points="6 9 12 15 18 9"/></svg>
-                    </div>
-                    {/* Play/Pause button */}
-                    <div style={{
-                      background: '#3D4260',
-                      borderRadius: '8px',
-                      width: '34px',
-                      height: '34px',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                    }}>
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="rgba(255,255,255,0.8)" stroke="none">
-                        <polygon points="5 3 19 12 5 21 5 3"/>
-                        <line x1="19" y1="5" x2="19" y2="19" stroke="rgba(255,255,255,0.8)" strokeWidth="3" strokeLinecap="round"/>
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
+              <img
+                src="/images/app/prayer-cards.png"
+                alt="Prayer time cards"
+                style={{
+                  position: 'relative',
+                  zIndex: 2,
+                  width: '255px',
+                  height: 'auto',
+                  display: 'block',
+                  marginLeft: '-60px',
+                  marginTop: '50px',
+                  filter: 'drop-shadow(-6px 12px 28px rgba(0,0,0,0.18))',
+                  flexShrink: 0,
+                }}
+              />
 
               {/* Layer 4 — Floor shadow ellipse */}
               <div style={{

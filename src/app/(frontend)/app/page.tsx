@@ -305,10 +305,10 @@ export default function AppPage() {
       <section className="bg-white pt-15 pb-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 text-center">
           <h2 className="text-[var(--text-h2)] font-extrabold text-brand-black">
-            One App. Full  Control
+            Everything You Need. One App.
           </h2>
           <p className="mt-4 text-[var(--text-body-lg)] font-light text-brand-gray-500 max-w-xl mx-auto">
-            Manage Azan, announcements, scheduling, source selection, sound tuning, and device settings from one simple interface built for commercial audio.
+            Available free on iOS and Android for all Qaissar QB Series devices.
           </p>
           <div className="mt-12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 text-left">
             {gridTiles.map(({ icon: Icon, label, description }) => (
