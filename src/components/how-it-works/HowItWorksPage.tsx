@@ -1,5 +1,7 @@
 'use client'
 
+import { FocusRailCarousel } from './FocusRailCarousel'
+
 export function HowItWorksPage() {
   return (
     <>
@@ -189,143 +191,79 @@ export function HowItWorksPage() {
 
       </section>
 
-      {/* ── SECTION 2: BUSINESS TYPES GRID — Sonos style ── */}
-      <section id="business-types" style={{
-        background: '#FFFFFF',
-        padding: '96px 0',
-      }}>
-        <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 48px' }}>
-
-          {/* Section header */}
-          <div className="hiw-section-header" style={{
-            textAlign: 'center',
-            marginBottom: '72px',
+      {/* ── FOCUS RAIL COMPARISON ── */}
+      <section style={{ background: '#FFFFFF', paddingTop: '96px' }}>
+        <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 48px', textAlign: 'center', marginBottom: '48px' }}>
+          <span style={{
+            display: 'block',
+            fontSize: '0.7rem',
+            fontWeight: 600,
+            letterSpacing: '0.16em',
+            textTransform: 'uppercase',
+            color: '#E31E24',
+            marginBottom: '16px',
           }}>
-            <span style={{
-              display: 'block',
-              fontSize: '1.5rem',
-              fontWeight: 600,
-              letterSpacing: '0.16em',
-              textTransform: 'uppercase',
-              color: '#E31E24',
-              marginBottom: '16px',
-            }}>
-              Who It&apos;s For
-            </span>
-            <h2 style={{
-              fontSize: 'clamp(1.8rem, 3vw, 2.75rem)',
-              fontWeight: 800,
-              color: '#1A1A1A',
-              lineHeight: 1.15,
-            }}>
-              Built for Every Commercial Space.
-            </h2>
-          </div>
-
-          {/* Grid */}
-          <div className="hiw-grid" style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(3, 1fr)',
-            gap: '48px 32px',
+            Who It&apos;s For
+          </span>
+          <h2 style={{
+            fontSize: 'clamp(1.8rem, 3vw, 2.75rem)',
+            fontWeight: 800,
+            color: '#1A1A1A',
+            lineHeight: 1.15,
           }}>
-            {[
-              {
-                label: 'Restaurants & Cafes',
-                description: 'Background music + prayer compliance, hands-free every day.',
-                image: '/images/how-it-works/restaurant-cafes.jpg',
-              },
-              {
-                label: 'Gyms & Fitness',
-                description: 'High-energy music + scheduled announcements + prayer times.',
-                image: '/images/how-it-works/gym-fitness.jpg',
-              },
-              {
-                label: 'Retail & Malls',
-                description: 'Atmosphere music + promotions + prayer compliance at scale.',
-                image: '/images/how-it-works/retail-malls.jpg',
-              },
-              {
-                label: 'Hospitality & Hotels',
-                description: 'Consistent background audio across every floor, prayer aware.',
-                image: '/images/how-it-works/hospitality-hotels.jpg',
-              },
-              {
-                label: 'Clinics & Offices',
-                description: 'Scheduled announcements + compliant audio zones, always on.',
-                image: '/images/how-it-works/clinics-offices.jpg',
-              },
-              {
-                label: 'Commercial Venues',
-                description: 'Full audio day automated from one device, zero staff effort.',
-                image: '/images/how-it-works/commercial-venues.jpg',
-              },
-            ].map((item) => (
-              <div key={item.label} className="hiw-card">
-
-                {/* Image area */}
-                <img
-                  src={item.image}
-                  alt={item.label}
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement
-                    target.style.display = 'none'
-                    if (target.nextSibling) {
-                      (target.nextSibling as HTMLElement).style.display = 'flex'
-                    }
-                  }}
-                  style={{
-                    width: '100%',
-                    height: '280px',
-                    objectFit: 'cover',
-                    display: 'block',
-                    marginBottom: '20px',
-                  }}
-                />
-                <div style={{
-                  display: 'none',
-                  width: '100%',
-                  height: '280px',
-                  background: '#F0F0F0',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  marginBottom: '20px',
-                }}>
-                  <span style={{
-                    fontSize: '11px',
-                    fontWeight: 600,
-                    color: '#BBBBBB',
-                    letterSpacing: '0.1em',
-                    textTransform: 'uppercase',
-                  }}>
-                    Image / Video
-                  </span>
-                </div>
-
-                {/* Text */}
-                <h3 style={{
-                  fontSize: '1.1rem',
-                  fontWeight: 800,
-                  color: '#1A1A1A',
-                  marginBottom: '8px',
-                  lineHeight: 1.3,
-                }}>
-                  {item.label}
-                </h3>
-                <p style={{
-                  fontSize: '0.9rem',
-                  fontWeight: 300,
-                  color: '#888888',
-                  lineHeight: 1.7,
-                  margin: 0,
-                }}>
-                  {item.description}
-                </p>
-
-              </div>
-            ))}
-          </div>
+            Built for Every Commercial Space.
+          </h2>
         </div>
       </section>
+      <FocusRailCarousel
+        loop={true}
+        autoPlay={true}
+        interval={4000}
+        items={[
+          {
+            id: 1,
+            title: 'Restaurants & Cafes',
+            description: 'Background music + prayer compliance, hands-free every day.',
+            meta: 'Commercial Audio',
+            imageSrc: '/images/how-it-works/restaurant-cafes.jpg',
+          },
+          {
+            id: 2,
+            title: 'Gyms & Fitness',
+            description: 'High-energy music + scheduled announcements + prayer times.',
+            meta: 'Commercial Audio',
+            imageSrc: '/images/how-it-works/gym-fitness.jpg',
+          },
+          {
+            id: 3,
+            title: 'Retail & Malls',
+            description: 'Atmosphere music + promotions + prayer compliance at scale.',
+            meta: 'Commercial Audio',
+            imageSrc: '/images/how-it-works/retail-malls.jpg',
+          },
+          {
+            id: 4,
+            title: 'Hospitality & Hotels',
+            description: 'Consistent background audio across every floor, prayer aware.',
+            meta: 'Commercial Audio',
+            imageSrc: '/images/how-it-works/hospitality-hotels.jpg',
+          },
+          {
+            id: 5,
+            title: 'Clinics & Offices',
+            description: 'Scheduled announcements + compliant audio zones, always on.',
+            meta: 'Commercial Audio',
+            imageSrc: '/images/how-it-works/clinics-offices.jpg',
+          },
+          {
+            id: 6,
+            title: 'Commercial Venues',
+            description: 'Full audio day automated from one device, zero staff effort.',
+            meta: 'Commercial Audio',
+            imageSrc: '/images/how-it-works/commercial-venues.jpg',
+          },
+        ]}
+      />
 
       {/* ── SECTION 3: HOW THE SYSTEM WORKS ── */}
       <section style={{
