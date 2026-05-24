@@ -11,29 +11,44 @@ export function HowItWorksPage() {
           .hiw-section-header { padding: 0 24px !important; text-align: left !important; }
           .hiw-card { margin: 0 !important; }
         }
+        @keyframes phonesEntrance {
+          0% {
+            transform: scale(1.08);
+            opacity: 0.7;
+          }
+          100% {
+            transform: scale(1);
+            opacity: 1;
+          }
+        }
+        .hiw-phones-anim {
+          animation: phonesEntrance 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+          transform-origin: center bottom;
+        }
       `}</style>
 
-      {/* ── SECTION 1: HERO — Cinematic animated ── */}
+      {/* ── SECTION 1: HERO ── */}
       <section style={{
         background: '#080808',
-        minHeight: '560px',
+        minHeight: '600px',
         display: 'flex',
+        flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
         textAlign: 'center',
-        padding: '60px 24px 100px',
+        padding: '80px 24px 0',
         position: 'relative',
         overflow: 'hidden',
       }}>
 
-        {/* Red glow center */}
+        {/* Red glow */}
         <div style={{
           position: 'absolute',
-          top: '50%',
+          top: '30%',
           left: '50%',
           transform: 'translate(-50%, -50%)',
-          width: '700px',
-          height: '350px',
+          width: '800px',
+          height: '400px',
           background: 'radial-gradient(ellipse at center, rgba(180,20,20,0.09) 0%, transparent 70%)',
           pointerEvents: 'none',
         }} />
@@ -41,26 +56,25 @@ export function HowItWorksPage() {
         {/* Top accent line */}
         <div style={{
           position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
+          top: 0, left: 0, right: 0,
           height: '1px',
           background: 'linear-gradient(to right, transparent, rgba(227,30,36,0.5), transparent)',
         }} />
 
+        {/* Text content */}
         <div style={{ position: 'relative', zIndex: 2, maxWidth: '800px' }}>
 
-          {/* Label with side lines */}
+          {/* Label */}
           <div style={{
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             gap: '14px',
-            marginBottom: '36px',
+            marginBottom: '28px',
           }}>
             <div style={{ width: '32px', height: '1px', background: 'rgba(227,30,36,0.4)' }} />
             <span style={{
-              fontSize: '14px',
+              fontSize: '18px',
               fontWeight: 600,
               letterSpacing: '0.22em',
               textTransform: 'uppercase',
@@ -71,7 +85,7 @@ export function HowItWorksPage() {
             <div style={{ width: '32px', height: '1px', background: 'rgba(227,30,36,0.4)' }} />
           </div>
 
-          {/* Static line */}
+          {/* Static headline */}
           <h1 style={{
             fontSize: 'clamp(2.4rem, 5vw, 3.8rem)',
             fontWeight: 800,
@@ -83,21 +97,20 @@ export function HowItWorksPage() {
             One System.
           </h1>
 
-          {/* Animated line */}
+          {/* Animated word */}
           <div style={{
-            height: 'clamp(80px, 12vw, 80px)',
+            height: 'clamp(80px, 12vw, 90px)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             position: 'relative',
-            marginBottom: '40px',
-            overflow: 'visible',
+            marginBottom: '48px',
           }}>
             {[
               'Every Restaurant.',
               'Every Gym.',
               'Every Hotel.',
-              'Every  Store.',
+              'Every Retail.',
               'Every Clinic.',
               'Every Venue.',
             ].map((text, i) => (
@@ -122,59 +135,35 @@ export function HowItWorksPage() {
             ))}
           </div>
 
-          {/* Subtext */}
-          <p style={{
-            fontSize: 'clamp(0.9rem, 1.5vw, 1.05rem)',
-            fontWeight: 300,
-            color: 'rgba(255,255,255,0.38)',
-            lineHeight: 1.8,
-            maxWidth: '440px',
-            margin: '0 auto 44px',
-            letterSpacing: '0.01em',
-          }}>
-            One device. One app. Zero daily effort — for any commercial space, anywhere in the world.
-          </p>
+        </div>
 
-          {/* CTA button */}
-          <button
-            onClick={() => {
-              document.getElementById('business-types')?.scrollIntoView({ behavior: 'smooth' })
-            }}
+        {/* Phone image — bottom, no padding */}
+        <div style={{
+          position: 'relative',
+          zIndex: 2,
+          width: '100%',
+          maxWidth: '900px',
+          marginTop: 'auto',
+        }}>
+          {/* Bottom fade over phones */}
+          <div style={{
+            position: 'absolute',
+            bottom: 0, left: 0, right: 0,
+            height: '120px',
+            background: 'linear-gradient(to top, #080808 0%, transparent 100%)',
+            zIndex: 3,
+            pointerEvents: 'none',
+          }} />
+          <img
+            src="/images/how-it-works/hero-phones.png"
+            alt="Qaissar app on iPhone"
+            className="hiw-phones-anim"
             style={{
-              display: 'inline-block',
-              border: '1px solid rgba(255,255,255,0.15)',
-              background: 'transparent',
-              color: 'rgba(255,255,255,0.6)',
-              fontSize: '11px',
-              fontWeight: 600,
-              letterSpacing: '0.12em',
-              textTransform: 'uppercase',
-              padding: '13px 36px',
-              borderRadius: '999px',
-              cursor: 'pointer',
-              marginBottom: '40px',
+              width: '100%',
+              height: 'auto',
+              display: 'block',
             }}
-          >
-            Discover How ↓
-          </button>
-
-          {/* Dot indicators */}
-          <div style={{ display: 'flex', gap: '6px', justifyContent: 'center' }}>
-            {[0,1,2,3,4,5].map((i) => (
-              <div
-                key={i}
-                id={`hiw-dot-${i}`}
-                style={{
-                  width: i === 0 ? '32px' : '20px',
-                  height: '2px',
-                  borderRadius: '1px',
-                  background: i === 0 ? '#E31E24' : 'rgba(255,255,255,0.12)',
-                  transition: 'all 0.4s ease',
-                }}
-              />
-            ))}
-          </div>
-
+          />
         </div>
 
         {/* Animation script */}
@@ -192,12 +181,8 @@ export function HowItWorksPage() {
               cur = (cur + 1) % total;
               var prevEl = document.getElementById('hiw-word-' + prev);
               var curEl = document.getElementById('hiw-word-' + cur);
-              var prevDot = document.getElementById('hiw-dot-' + prev);
-              var curDot = document.getElementById('hiw-dot-' + cur);
               if (prevEl) { prevEl.style.opacity = '0'; prevEl.style.transform = 'translateY(14px)'; }
               if (curEl) { curEl.style.opacity = '1'; curEl.style.transform = 'translateY(0)'; }
-              if (prevDot) { prevDot.style.width = '20px'; prevDot.style.background = 'rgba(255,255,255,0.12)'; }
-              if (curDot) { curDot.style.width = '32px'; curDot.style.background = '#E31E24'; }
             }, 2200);
           })();
         `}} />
