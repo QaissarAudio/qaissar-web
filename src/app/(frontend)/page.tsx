@@ -231,17 +231,24 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Right — phone mockup placeholder */}
-            <div className="flex justify-center">
-              <div
-                className="w-[280px] aspect-[9/16] rounded-[24px] flex items-center justify-center"
+            {/* Right — app hand image */}
+            <div style={{
+              position: 'relative',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'flex-end',
+            }}>
+              <img
+                src="/images/app-hand.png"
+                alt="Qaissar app on iPhone held in hand"
                 style={{
-                  backgroundColor: '#1A1A1A',
-                  boxShadow: '0 24px 48px rgba(0,0,0,0.15)',
+                  width: '100%',
+                  maxWidth: '600px',
+                  height: 'auto',
+                  display: 'block',
+                  filter: 'drop-shadow(0 24px 48px rgba(0,0,0,0.15))',
                 }}
-              >
-                <span className="text-white text-[14px]">Qaissar App2</span>
-              </div>
+              />
             </div>
 
           </div>
