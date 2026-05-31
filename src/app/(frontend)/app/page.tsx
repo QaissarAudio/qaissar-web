@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
-import { Button } from '@/components/ui/Button'
+import { AppStoreButton } from '@/components/app/AppStoreButton'
+import { PlayStoreButton } from '@/components/app/PlayStoreButton'
 import AppImage from '@/components/app/AppImage'
 import { PrayerSchedulingSection } from '@/components/app/PrayerSchedulingSection'
 import { TTSAnnouncementsSection } from '@/components/app/TTSAnnouncementsSection'
@@ -210,18 +211,9 @@ export default function AppPage() {
                 business — permanently.
               </p>
               {/* Buttons — desktop only */}
-              <div className="hidden md:flex gap-3 flex-wrap">
-                <Button variant="primary" size="md" href="#">
-                  Download on App Store
-                </Button>
-                <Button
-                  variant="secondary"
-                  size="md"
-                  href="#"
-                  className="hero-btn-ghost"
-                >
-                  Get it on Google Play
-                </Button>
+              <div className="hidden md:flex gap-3 flex-wrap items-center">
+                <AppStoreButton href="#" />
+                <PlayStoreButton href="#" />
               </div>
             </div>
 
@@ -243,17 +235,8 @@ export default function AppPage() {
 
           {/* Buttons — mobile only, below phone */}
           <div className="flex md:hidden flex-col gap-3 px-6 pb-8 items-center">
-            <Button variant="primary" size="md" href="#">
-              Download on App Store
-            </Button>
-            <Button
-              variant="secondary"
-              size="md"
-              href="#"
-              className="hero-btn-ghost"
-            >
-              Get it on Google Play
-            </Button>
+            <AppStoreButton href="#" />
+            <PlayStoreButton href="#" />
           </div>
         </div>
       </section>
@@ -332,18 +315,9 @@ export default function AppPage() {
           <p className="mt-4 text-[var(--text-body-lg)] font-light text-brand-gray-500">
             Free for iOS and Android. Works with all QB Series devices.
           </p>
-          <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="primary" size="md" href="#">
-              Download on App Store
-            </Button>
-            <Button
-              variant="secondary"
-              size="md"
-              href="#"
-              className="!border-white !text-white hover:!bg-white hover:!text-brand-black"
-            >
-              Get it on Google Play
-            </Button>
+          <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <AppStoreButton href="#" variant="on-dark" />
+            <PlayStoreButton href="#" variant="on-dark" />
           </div>
           <p className="mt-6 text-[var(--text-caption)] text-brand-gray-500">
             App Store and Google Play links coming soon.

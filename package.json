@@ -4,7 +4,7 @@
   "description": "Qaissar Audio - Commercial Audio Equipment",
   "license": "MIT",
   "scripts": {
-    "build": "next build",
+    "build": "next build && node scripts/copy-standalone-assets.mjs",
     "dev": "node --max-old-space-size=4096 node_modules/next/dist/bin/next dev",
     "generate:importmap": "payload generate:importmap",
     "generate:types": "payload generate:types",

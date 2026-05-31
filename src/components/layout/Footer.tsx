@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { LinkedInButton } from '@/components/layout/LinkedInButton'
 import QaissarLogo from '@/components/logo/QaissarLogo'
 
 const columns = [
@@ -34,73 +35,101 @@ const columns = [
   },
 ]
 
+function FooterArch() {
+  return (
+    <div className="site-footer__arch" aria-hidden="true">
+      <svg
+        className="site-footer__arch-svg"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 80"
+        preserveAspectRatio="none"
+      >
+        <defs>
+          <linearGradient
+            id="qaissar-footer-arch-gradient"
+            x1="15%"
+            y1="0%"
+            x2="85%"
+            y2="100%"
+          >
+            <stop offset="0%" stopColor="#E31E24" />
+            <stop offset="38%" stopColor="#8B1A1F" />
+            <stop offset="72%" stopColor="#2A1214" />
+            <stop offset="100%" stopColor="#1A1A1A" />
+          </linearGradient>
+        </defs>
+        <path
+          className="site-footer__arch-fill"
+          fill="url(#qaissar-footer-arch-gradient)"
+          d="M0,80 L0,46 C360,6 1080,6 1440,46 L1440,80 Z"
+        />
+      </svg>
+    </div>
+  )
+}
+
 export function Footer() {
   return (
-    <footer style={{ backgroundColor: '#1A1A1A' }} className="text-white">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+    <footer className="site-footer text-white">
+      <FooterArch />
 
-        {/* Top row */}
-        <div className="flex items-center justify-between pt-5 pb-5">
-          <QaissarLogo size="md" variant="light" />
-          <p className="text-brand-gray-500 font-light text-sm">The commercial audio ecosystem.</p>
+      <div className="site-footer__body">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+
+          {/* Top row */}
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between pt-4 pb-5 md:pt-6">
+            <QaissarLogo size="md" variant="light" />
+            <p className="text-brand-gray-500 font-light text-sm max-w-md">
+              The commercial audio ecosystem.
+            </p>
+          </div>
+
+          {/* Middle row — 4 columns */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-10 py-8">
+            {columns.map(({ heading, links }) => (
+              <div key={heading}>
+                <p className="text-[11px] font-semibold uppercase tracking-[2px] text-brand-gray-200 mb-4">
+                  {heading}
+                </p>
+                <ul className="flex flex-col gap-3">
+                  {links.map(({ label, href, external }) => (
+                    <li key={label}>
+                      {external ? (
+                        <a
+                          href={href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-sm text-brand-gray-500 hover:text-white transition-colors font-light"
+                        >
+                          {label}
+                        </a>
+                      ) : (
+                        <Link
+                          href={href}
+                          className="text-sm text-brand-gray-500 hover:text-white transition-colors font-light"
+                        >
+                          {label}
+                        </Link>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          {/* Divider */}
+          <hr style={{ borderColor: '#333333' }} />
+
+          {/* Bottom row */}
+          <div className="flex flex-col-reverse gap-4 sm:flex-row sm:items-center sm:justify-between py-5">
+            <p className="text-xs text-brand-gray-500 font-light">
+              © 2026 Qaissar. A Masar Technology brand.
+            </p>
+            <LinkedInButton />
+          </div>
+
         </div>
-
-        {/* Middle row — 4 columns */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-15 py-8">
-          {columns.map(({ heading, links }) => (
-            <div key={heading}>
-              <p className="text-[11px] font-semibold uppercase tracking-[2px] text-brand-gray-200 mb-4">
-                {heading}
-              </p>
-              <ul className="flex flex-col gap-3">
-                {links.map(({ label, href, external }) => (
-                  <li key={label}>
-                    {external ? (
-                      <a
-                        href={href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-sm text-brand-gray-500 hover:text-white transition-colors font-light"
-                      >
-                        {label}
-                      </a>
-                    ) : (
-                      <Link
-                        href={href}
-                        className="text-sm text-brand-gray-500 hover:text-white transition-colors font-light"
-                      >
-                        {label}
-                      </Link>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-
-        {/* Divider */}
-        <hr style={{ borderColor: '#333333' }} />
-
-        {/* Bottom row */}
-        <div className="flex items-center justify-between py-5">
-          <p className="text-xs text-brand-gray-500 font-light">
-            © 2026 Qaissar. A Masar Technology brand.
-          </p>
-          {/* LinkedIn */}
-          <a
-            href="https://www.linkedin.com/company/qaissar"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Qaissar on LinkedIn"
-            className="text-brand-gray-500 hover:text-white transition-colors"
-          >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M20.447 20.452H17.01v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.588V9h3.31v1.561h.046c.461-.873 1.586-1.794 3.265-1.794 3.492 0 4.138 2.299 4.138 5.29v6.395zM5.337 7.433a1.92 1.92 0 1 1 0-3.84 1.92 1.92 0 0 1 0 3.84zm1.657 13.019H3.68V9h3.314v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-            </svg>
-          </a>
-        </div>
-
       </div>
     </footer>
   )

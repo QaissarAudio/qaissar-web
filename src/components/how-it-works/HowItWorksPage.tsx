@@ -1,5 +1,6 @@
 'use client'
 
+import { DistributorCta } from '@/components/ui/DistributorCta'
 import { FocusRailCarousel } from './FocusRailCarousel'
 
 export function HowItWorksPage() {
@@ -7,7 +8,7 @@ export function HowItWorksPage() {
     <>
 
       <style>{`
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
           .hiw-grid { grid-template-columns: 1fr !important; }
           .hiw-steps { grid-template-columns: 1fr !important; }
           .hiw-section-header { padding: 0 24px !important; text-align: left !important; }
@@ -395,19 +396,7 @@ export function HowItWorksPage() {
           }}>
             Join our distributor network across GCC, Iraq, and Southeast Asia.
           </p>
-          <a href="/distributor" style={{
-            display: 'inline-block',
-            background: '#FFFFFF',
-            color: '#E31E24',
-            fontWeight: 800,
-            fontSize: '0.95rem',
-            padding: '16px 40px',
-            borderRadius: '999px',
-            textDecoration: 'none',
-            letterSpacing: '0.02em',
-          }}>
-            Become a Distributor
-          </a>
+          <DistributorCta size="page" />
         </div>
       </section>
 

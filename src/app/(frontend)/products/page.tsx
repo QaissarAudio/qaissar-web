@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Button } from '@/components/ui/Button'
+import { DistributorCta } from '@/components/ui/DistributorCta'
 import { ProductGrid } from '@/components/products/ProductGrid'
 
 export const metadata: Metadata = {
@@ -42,9 +42,7 @@ export default function ProductsPage() {
             We work with AV and CCTV distributors across GCC, Iraq, and Southeast Asia.
           </p>
           <div className="mt-8">
-            <Button variant="primary" size="lg" href="/distributor">
-              Become a Distributor
-            </Button>
+            <DistributorCta size="page" />
           </div>
         </div>
       </section>

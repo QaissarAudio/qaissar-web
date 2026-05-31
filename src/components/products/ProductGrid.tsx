@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { Speaker } from 'lucide-react'
 import { Badge } from '@/components/ui/Badge'
+import { LinkCta } from '@/components/ui/LinkCta'
 
 type Category = 'All' | 'Smart Amplifiers' | 'Speakers'
 
@@ -78,45 +79,48 @@ export function ProductGrid() {
       {/* Product grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
         {filtered.map((product) => (
-          <Link
+          <article
             key={product.slug}
-            href={`/products/${product.slug}`}
-            className="group block hover:scale-[1.01] transition-transform duration-300"
+            className="group hover:scale-[1.01] transition-transform duration-300"
           >
-            {/* Image */}
-            <div className={`aspect-square rounded-[16px] overflow-hidden flex items-center justify-center ${product.image ? 'bg-white' : 'bg-brand-gray-100'}`}>
-              {product.image ? (
-                <Image
-                  src={product.image}
-                  width={600}
-                  height={600}
-                  alt={product.name}
-                  className="object-contain w-full h-full"
-                />
-              ) : (
-                <Speaker size={48} className="text-brand-gray-200" />
-              )}
-            </div>
-
-            {/* Product info */}
-            <div className="pt-5">
-              <p className="text-[11px] font-semibold uppercase tracking-[1px] text-brand-gray-500">
-                {product.category}
-              </p>
-              <h2 className="text-[20px] font-extrabold text-brand-black mt-1">
-                {product.name}
-              </h2>
-              <p className="text-[14px] font-light text-brand-gray-500 mt-1.5 leading-snug line-clamp-2">
-                {product.description}
-              </p>
-              <div className="flex justify-between items-center mt-3">
-                <Badge variant={product.status} />
-                <span className="text-brand-red text-[13px] font-semibold group-hover:underline">
-                  View product →
-                </span>
+            <Link href={`/products/${product.slug}`} className="block">
+              <div
+                className={`aspect-square rounded-[16px] overflow-hidden flex items-center justify-center ${product.image ? 'bg-white' : 'bg-brand-gray-100'}`}
+              >
+                {product.image ? (
+                  <Image
+                    src={product.image}
+                    width={600}
+                    height={600}
+                    alt={product.name}
+                    className="object-contain w-full h-full"
+                  />
+                ) : (
+                  <Speaker size={48} className="text-brand-gray-200" />
+                )}
               </div>
-            </div>
-          </Link>
+
+              <div className="pt-5">
+                <p className="text-[11px] font-semibold uppercase tracking-[1px] text-brand-gray-500">
+                  {product.category}
+                </p>
+                <h2 className="text-[20px] font-extrabold text-brand-black mt-1">
+                  {product.name}
+                </h2>
+                <p className="text-[14px] font-light text-brand-gray-500 mt-1.5 leading-snug line-clamp-2">
+                  {product.description}
+                </p>
+                <div className="mt-3">
+                  <Badge variant={product.status} />
+                </div>
+              </div>
+            </Link>
+            <LinkCta
+              href={`/products/${product.slug}`}
+              label="View product"
+              className="mt-2"
+            />
+          </article>
         ))}
       </div>
     </>

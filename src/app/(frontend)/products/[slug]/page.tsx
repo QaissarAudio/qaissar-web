@@ -16,7 +16,9 @@ import {
   Maximize2,
 } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
+import { DistributorCta } from '@/components/ui/DistributorCta'
 import { Badge } from '@/components/ui/Badge'
+import { LinkCta } from '@/components/ui/LinkCta'
 import { ProductImageGallery } from '@/components/products/ProductImageGallery'
 import { TechSpecsAccordion } from '@/components/products/TechSpecsAccordion'
 import type { Tab } from '@/components/products/TechSpecsAccordion'
@@ -783,44 +785,49 @@ export default async function ProductDetailPage({ params }: Props) {
           <h2 className="text-[32px] font-extrabold text-brand-black mb-12">You may also like</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-2xl">
             {product.relatedProducts.map((related) => (
-              <Link
+              <article
                 key={related.slug}
-                href={`/products/${related.slug}`}
-                className="group block hover:scale-[1.01] transition-transform duration-300"
+                className="group hover:scale-[1.01] transition-transform duration-300"
               >
-                <div className={`aspect-square rounded-[16px] overflow-hidden flex items-center justify-center ${
-                  related.image ? 'bg-white' : 'bg-brand-gray-100'
-                }`}>
-                  {related.image ? (
-                    <Image
-                      src={related.image}
-                      width={600}
-                      height={600}
-                      alt={related.name}
-                      className="object-contain w-full h-full"
-                    />
-                  ) : (
-                    <Speaker size={48} className="text-brand-gray-200" />
-                  )}
-                </div>
-                <div className="pt-5">
-                  <p className="text-[11px] font-semibold uppercase tracking-[1px] text-brand-gray-500">
-                    {related.category}
-                  </p>
-                  <h3 className="text-[20px] font-extrabold text-brand-black mt-1">
-                    {related.name}
-                  </h3>
-                  <p className="text-[14px] font-light text-brand-gray-500 mt-1.5 leading-snug line-clamp-2">
-                    {related.description}
-                  </p>
-                  <div className="flex justify-between items-center mt-3">
-                    <Badge variant="available" />
-                    <span className="text-brand-red text-[13px] font-semibold group-hover:underline">
-                      View product →
-                    </span>
+                <Link href={`/products/${related.slug}`} className="block">
+                  <div
+                    className={`aspect-square rounded-[16px] overflow-hidden flex items-center justify-center ${
+                      related.image ? 'bg-white' : 'bg-brand-gray-100'
+                    }`}
+                  >
+                    {related.image ? (
+                      <Image
+                        src={related.image}
+                        width={600}
+                        height={600}
+                        alt={related.name}
+                        className="object-contain w-full h-full"
+                      />
+                    ) : (
+                      <Speaker size={48} className="text-brand-gray-200" />
+                    )}
                   </div>
-                </div>
-              </Link>
+                  <div className="pt-5">
+                    <p className="text-[11px] font-semibold uppercase tracking-[1px] text-brand-gray-500">
+                      {related.category}
+                    </p>
+                    <h3 className="text-[20px] font-extrabold text-brand-black mt-1">
+                      {related.name}
+                    </h3>
+                    <p className="text-[14px] font-light text-brand-gray-500 mt-1.5 leading-snug line-clamp-2">
+                      {related.description}
+                    </p>
+                    <div className="mt-3">
+                      <Badge variant="available" />
+                    </div>
+                  </div>
+                </Link>
+                <LinkCta
+                  href={`/products/${related.slug}`}
+                  label="View product"
+                  className="mt-2"
+                />
+              </article>
             ))}
           </div>
         </div>
@@ -836,9 +843,10 @@ export default async function ProductDetailPage({ params }: Props) {
             Apply to become a distributor and get access to pricing, datasheets, and product samples.
           </p>
           <div className="mt-8">
-            <Button variant="primary" size="lg" href="/distributor">
-              Apply to Become a Distributor
-            </Button>
+            <DistributorCta
+              size="page"
+              label="Apply to Become a Distributor"
+            />
           </div>
         </div>
       </section>

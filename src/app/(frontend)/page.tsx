@@ -1,7 +1,10 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Speaker } from 'lucide-react'
-import { Button } from '@/components/ui/Button'
+import { DistributorCta } from '@/components/ui/DistributorCta'
+import { ExploreProductsButton } from '@/components/ui/ExploreProductsButton'
+import { LinkCta } from '@/components/ui/LinkCta'
+import { QaissarSoundSection } from '@/components/app/QaissarSoundSection'
 import { Badge } from '@/components/ui/Badge'
 
 export const metadata: Metadata = {
@@ -13,36 +16,31 @@ export const metadata: Metadata = {
 // Reusable section label
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
-    <p className="text-brand-red text-[26px] font-semibold uppercase tracking-[2px]">
+    <p className="text-brand-red text-[18px] sm:text-[22px] md:text-[26px] font-semibold uppercase tracking-[2px]">
       {children}
     </p>
   )
 }
 
 // Reusable AzanPlay badge
-function AzanPlayBadge({ label = 'Powered by AzanPlay ↗' }: { label?: string }) {
+function AzanPlayBadge({ label }: { label?: string }) {
+  const desktopText = label ?? 'Powered by AzanPlay ↗'
+
   return (
-    
     <a
       href="https://azanplay.com"
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex items-center gap-2 rounded-full px-8 py-5 hover:opacity-80 transition-opacity"
-      style={{ backgroundColor: '#1A1A1A' }}
+      className="inline-flex shrink-0 items-center gap-1.5 rounded-full px-3 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-80 sm:gap-2 sm:px-6 sm:py-4 sm:text-base md:px-8 md:py-5"
+      style={{ backgroundColor: '#1A1A1A', fontFamily: '"Nunito Sans", sans-serif' }}
     >
       <span
-        style={{
-          width: 18,
-          height: 18,
-          borderRadius: '50%',
-          backgroundColor: '#E31E24',
-          display: 'inline-block',
-          flexShrink: 0,
-        }}
+        className="h-3.5 w-3.5 shrink-0 rounded-full sm:h-[18px] sm:w-[18px]"
+        style={{ backgroundColor: '#E31E24' }}
+        aria-hidden="true"
       />
-      <span style={{ color: '#FFFFFF', fontSize: 16, fontWeight: 600, fontFamily: '"Nunito Sans", sans-serif' }}>
-        {label}
-      </span>
+      <span className="whitespace-nowrap sm:hidden">AzanPlay ↗</span>
+      <span className="hidden whitespace-nowrap sm:inline">{desktopText}</span>
     </a>
   )
 }
@@ -53,7 +51,7 @@ export default function HomePage() {
       {/* ── SECTION 1: HERO ─────────────────────────────────────────── */}
       <section
         className="relative w-full overflow-hidden"
-        style={{ minHeight: 'calc(100vh - 64px)' }}
+        style={{ minHeight: 'calc(100dvh - var(--header-total-height))' }}
       >
         {/* Background image */}
         <Image
@@ -71,18 +69,21 @@ export default function HomePage() {
         />
 
         {/* Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 h-full flex items-center" style={{ minHeight: 'calc(100vh - 64px)' }}>
+        <div
+          className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 w-full flex items-start pt-12 sm:pt-16 md:pt-20 lg:pt-24 pb-12 md:pb-16"
+          style={{ minHeight: 'calc(100dvh - var(--header-total-height))' }}
+        >
           <div className="max-w-[600px]">
 
             <p className="text-[18px] font-semibold uppercase tracking-[2px]" style={{ color: '#E31E24' }}>
               Commercial Audio Ecosystem
             </p>
 
-            <h1 className="text-[40px] lg:text-[64px] font-extrabold leading-[1.1] mt-4" style={{ color: '#FFFFFF' }}>
+            <h1 className="heading-display font-extrabold mt-4 md:text-[56px] xl:text-[64px]" style={{ color: '#FFFFFF' }}>
               Every prayer. Every announcement. Every space.
             </h1>
 
-            <p className="text-[24px] font-light mt-4" style={{ color: 'rgba(255,255,255,0.8)' }}>
+            <p className="text-[18px] sm:text-[22px] md:text-[24px] font-light mt-4" style={{ color: 'rgba(255,255,255,0.8)' }}>
               One device. Every need.
             </p>
 
@@ -94,15 +95,9 @@ export default function HomePage() {
               all from one app.
             </p>
 
-            <div className="flex flex-wrap items-center gap-8 mt-10">
+            <div className="mt-10 flex flex-row flex-wrap items-center gap-3 sm:gap-6 md:gap-8">
               <AzanPlayBadge />
-              <a
-                href="/products"
-                className="text-[16px] font-semibold hover:underline"
-                style={{ color: '#FFFFFF' }}
-              >
-                Explore Products →
-              </a>
+              <ExploreProductsButton className="shrink-0" />
             </div>
 
           </div>
@@ -114,7 +109,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto">
 
           <SectionLabel>Why Qaissar</SectionLabel>
-          <h2 className="text-[48px] font-extrabold text-brand-black mt-4 mb-12 leading-tight">
+          <h2 className="heading-section font-extrabold text-brand-black mt-4 mb-12">
             Built for the way your business works.
           </h2>
 
@@ -197,6 +192,8 @@ export default function HomePage() {
         </div>
       </section>
 
+      <QaissarSoundSection />
+
       {/* ── SECTION 3: APP SHOWCASE ──────────────────────────────────── */}
       <section className="bg-brand-gray-100 py-20 px-6 lg:px-12">
         <div className="max-w-7xl mx-auto">
@@ -205,7 +202,7 @@ export default function HomePage() {
             {/* Left */}
             <div>
               <SectionLabel>Qaissar App</SectionLabel>
-              <h2 className="text-[48px] font-extrabold text-brand-black leading-tight mt-3 max-w-[480px]">
+              <h2 className="heading-section font-extrabold text-brand-black mt-3 max-w-[480px]">
                 Everything in your hands.
               </h2>
 
@@ -260,7 +257,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto">
 
           <SectionLabel>Who it&apos;s for</SectionLabel>
-          <h2 className="text-[48px] font-extrabold text-brand-black leading-tight mt-3 mb-12">
+          <h2 className="heading-section font-extrabold text-brand-black mt-3 mb-12">
             Built for every space.
           </h2>
 
@@ -366,7 +363,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto">
 
           <SectionLabel>Products</SectionLabel>
-          <h2 className="text-[48px] font-extrabold text-brand-black leading-tight mt-3">
+          <h2 className="heading-section font-extrabold text-brand-black mt-3">
             One ecosystem. Every space.
           </h2>
           <p className="text-[20px] font-light text-brand-gray-500 mt-4 mb-14">
@@ -393,9 +390,11 @@ export default function HomePage() {
               <div className="mt-4">
                 <Badge variant="available" />
               </div>
-              <a href="/products" className="inline-flex items-center text-brand-red text-[14px] font-semibold mt-4 hover:underline">
-                Learn more →
-              </a>
+              <LinkCta
+                href="/products/qb-mini-smart-amp"
+                label="Learn more"
+                className="mt-3"
+              />
             </div>
 
             {/* Product 2 — Ceiling Speaker */}
@@ -410,9 +409,11 @@ export default function HomePage() {
               <div className="mt-4">
                 <Badge variant="available" />
               </div>
-              <a href="/products" className="inline-flex items-center text-brand-red text-[14px] font-semibold mt-4 hover:underline">
-                Learn more →
-              </a>
+              <LinkCta
+                href="/products/qaissar-cs-pro"
+                label="Learn more"
+                className="mt-3"
+              />
             </div>
 
             {/* Product 3 — WS Pro */}
@@ -427,17 +428,17 @@ export default function HomePage() {
               <div className="mt-4">
                 <Badge variant="available" />
               </div>
-              <a href="/products" className="inline-flex items-center text-brand-red text-[14px] font-semibold mt-4 hover:underline">
-                Learn more →
-              </a>
+              <LinkCta
+                href="/products/qaissar-ws-pro"
+                label="Learn more"
+                className="mt-3"
+              />
             </div>
 
           </div>
 
-          <div className="text-center mt-12">
-            <Button variant="secondary" size="md" href="/products">
-              View all products →
-            </Button>
+          <div className="flex justify-center mt-12">
+            <LinkCta href="/products" label="View all products" />
           </div>
 
         </div>
@@ -446,16 +447,17 @@ export default function HomePage() {
       {/* ── SECTION 6: CTA BAND ──────────────────────────────────────── */}
       <section className="py-20 lg:py-20 px-6 lg:px-12 text-center" style={{ backgroundColor: '#1A1A1A' }}>
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-[48px] font-extrabold text-white leading-tight">
+          <h2 className="heading-section font-extrabold text-white">
             Ready to bring Qaissar to your market?
           </h2>
           <p className="text-[20px] font-light text-brand-gray-500 mt-4">
             We partner with AV and CCTV distributors across GCC, Iraq, and Southeast Asia.
           </p>
           <div className="mt-10">
-            <Button variant="primary" size="lg" href="/distributor">
-              Apply to Become a Distributor
-            </Button>
+            <DistributorCta
+              size="page"
+              label="Apply to Become a Distributor"
+            />
           </div>
         </div>
       </section>

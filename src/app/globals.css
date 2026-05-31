@@ -55,9 +55,21 @@
   --section-padding-y:    5rem;
 }
 
+:root {
+  --nav-bar-height: 3.5rem;
+  --header-total-height: calc(env(safe-area-inset-top, 0px) + var(--nav-bar-height));
+}
+
+@media (min-width: 640px) {
+  :root {
+    --nav-bar-height: 4rem;
+  }
+}
+
 @layer base {
   html {
     font-size: 16px;
+    overflow-x: clip;
   }
 
   body {
@@ -66,6 +78,8 @@
     color: #1A1A1A;
     background-color: #FFFFFF;
     line-height: var(--leading-normal);
+    overflow-x: clip;
+    max-width: 100%;
   }
 
   h1, h2, h3, h4 {
@@ -106,4 +120,592 @@
 .hero-btn-ghost:hover {
   background-color: rgba(255, 255, 255, 0.10) !important;
   color: #ffffff !important;
+}
+
+/* Navbar link underline — expands from center on hover (brand red) */
+.nav-link-underline {
+  display: inline-block;
+  background: none;
+  border: none;
+  text-decoration: none;
+}
+
+.nav-link-underline::before {
+  margin-left: auto;
+}
+
+.nav-link-underline::after,
+.nav-link-underline::before {
+  content: '';
+  width: 0%;
+  height: 2px;
+  background: var(--color-brand-red);
+  display: block;
+  transition: width 0.5s ease;
+}
+
+.nav-link-underline:hover::after,
+.nav-link-underline:hover::before,
+.nav-link-underline--active::after,
+.nav-link-underline--active::before {
+  width: 100%;
+}
+
+/* Navbar CTA — pill fill on hover (Qaissar brand red) */
+.nav-cta-pill {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: var(--radius-full);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: var(--text-body-sm);
+  line-height: 1;
+  height: 2.5rem;
+  padding: 0 1.25rem;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  color: var(--color-brand-black);
+  background: transparent;
+  box-shadow:
+    4px 4px 10px rgba(26, 26, 26, 0.08),
+    -4px -4px 10px rgba(255, 255, 255, 0.95);
+  transition: color 0.5s ease, box-shadow 0.3s ease;
+}
+
+.nav-cta-pill::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-color: var(--color-brand-white);
+  z-index: 0;
+}
+
+.nav-cta-pill::before {
+  content: '';
+  width: 0;
+  height: 100%;
+  border-radius: var(--radius-full);
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(
+    to right,
+    var(--color-brand-red) 0%,
+    #c71a1f 100%
+  );
+  transition: width 0.5s ease;
+  display: block;
+  z-index: 1;
+}
+
+.nav-cta-pill:hover {
+  color: var(--color-brand-white);
+  box-shadow:
+    4px 4px 14px rgba(227, 30, 36, 0.25),
+    -2px -2px 8px rgba(255, 255, 255, 0.8);
+}
+
+.nav-cta-pill:hover::before {
+  width: 100%;
+}
+
+.nav-cta-pill:focus-visible {
+  outline: 2px solid var(--color-brand-red);
+  outline-offset: 2px;
+}
+
+.nav-cta-pill__label {
+  position: relative;
+  z-index: 2;
+}
+
+.nav-cta-pill--menu {
+  width: 100%;
+  height: 3.25rem;
+  font-size: var(--text-body);
+  padding: 0 1.5rem;
+}
+
+.nav-cta-pill--page {
+  height: 3.25rem;
+  font-size: var(--text-body);
+  padding: 0 1.75rem;
+}
+
+/* Tablet / compact navbar (lg → xl) */
+.nav-cta-pill--compact {
+  height: 2.25rem;
+  padding: 0 0.875rem;
+  font-size: 0.8125rem;
+  box-shadow:
+    3px 3px 8px rgba(26, 26, 26, 0.07),
+    -3px -3px 8px rgba(255, 255, 255, 0.9);
+}
+
+.nav-link-underline--compact {
+  padding-left: 0.625rem;
+  padding-right: 0.625rem;
+  font-size: 13px;
+}
+
+/* Fluid section headings */
+.heading-display {
+  font-size: clamp(2rem, 5vw + 0.5rem, 3rem);
+  line-height: var(--leading-tight);
+}
+
+.heading-section {
+  font-size: clamp(1.75rem, 4vw + 0.25rem, 3rem);
+  line-height: var(--leading-tight);
+}
+
+/* App Store button (Uiverse / Yaya12085) */
+.appstore-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--color-brand-black);
+  border-radius: var(--radius-full);
+  background-color: var(--color-brand-black);
+  padding: 0.625rem 1.5rem;
+  text-align: center;
+  color: var(--color-brand-white);
+  outline: 0;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  font-family: var(--font-sans);
+}
+
+.appstore-button:hover {
+  background-color: transparent;
+  color: var(--color-brand-black);
+}
+
+.appstore-button__icon {
+  height: 1.5rem;
+  width: 1.5rem;
+  flex-shrink: 0;
+}
+
+.appstore-button__texts {
+  margin-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1;
+}
+
+.appstore-button__text-1 {
+  margin-bottom: 0.25rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.appstore-button__text-2 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.appstore-button--on-dark {
+  border-color: var(--color-brand-white);
+  background-color: var(--color-brand-white);
+  color: var(--color-brand-black);
+}
+
+.appstore-button--on-dark:hover {
+  background-color: transparent;
+  color: var(--color-brand-white);
+}
+
+/* Google Play store button (Uiverse / Yaya12085) */
+.playstore-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--color-brand-black);
+  border-radius: var(--radius-full);
+  background-color: var(--color-brand-black);
+  padding: 0.625rem 1.5rem;
+  text-align: center;
+  color: var(--color-brand-white);
+  outline: 0;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  font-family: var(--font-sans);
+}
+
+.playstore-button:hover {
+  background-color: transparent;
+  color: var(--color-brand-black);
+}
+
+.playstore-button__icon {
+  height: 1.5rem;
+  width: 1.5rem;
+  flex-shrink: 0;
+}
+
+.playstore-button__texts {
+  margin-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1;
+}
+
+.playstore-button__text-1 {
+  margin-bottom: 0.25rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.playstore-button__text-2 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.playstore-button--on-dark {
+  border-color: var(--color-brand-white);
+  background-color: var(--color-brand-white);
+  color: var(--color-brand-black);
+}
+
+.playstore-button--on-dark:hover {
+  background-color: transparent;
+  color: var(--color-brand-white);
+}
+
+/* Text link CTA with arrow + underline (Uiverse / alexmaracinaru) */
+.link-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.125rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
+  padding: 0;
+  font-family: var(--font-sans);
+  color: var(--color-brand-black);
+}
+
+.link-cta__text {
+  position: relative;
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  padding: 0 0.375rem 5px 0;
+}
+
+.link-cta__text::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1.5px;
+  transform: scaleX(0);
+  background-color: currentColor;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.link-cta:hover .link-cta__text::after,
+.link-cta:focus-visible .link-cta__text::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.link-cta svg {
+  width: 10px;
+  height: 8px;
+  transform: translateX(-4px);
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.link-cta:hover svg,
+.link-cta:focus-visible svg {
+  transform: translateX(0);
+}
+
+.link-cta:active svg {
+  transform: scale(0.9);
+}
+
+.link-cta:focus-visible {
+  outline: 2px solid var(--color-brand-red);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.link-cta--accent {
+  color: var(--color-brand-red);
+}
+
+.link-cta--light {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Explore Products — learn-more (Uiverse / cssbuttons-io) */
+.learn-more-btn {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  vertical-align: middle;
+  text-decoration: none;
+  background: transparent;
+  padding: 0;
+  font-size: inherit;
+  font-family: var(--font-sans);
+  width: 11.5rem;
+  height: 2.5rem;
+}
+
+.learn-more-btn__circle {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: relative;
+  z-index: 1;
+  display: block;
+  flex-shrink: 0;
+  margin: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: #282936;
+  border-radius: 1.375rem;
+}
+
+.learn-more-btn__arrow {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0.5rem;
+  margin: auto;
+  width: 1rem;
+  height: 0.125rem;
+  background: none;
+}
+
+.learn-more-btn__arrow::before {
+  position: absolute;
+  content: "";
+  top: -0.25rem;
+  right: 0.05rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-top: 0.125rem solid #fff;
+  border-right: 0.125rem solid #fff;
+  transform: rotate(45deg);
+}
+
+.learn-more-btn__text {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 2.875rem;
+  right: 0.5rem;
+  z-index: 2;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: #282936;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: left;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.learn-more-btn:hover .learn-more-btn__circle,
+.learn-more-btn:focus-visible .learn-more-btn__circle {
+  width: 100%;
+}
+
+.learn-more-btn:hover .learn-more-btn__arrow,
+.learn-more-btn:focus-visible .learn-more-btn__arrow {
+  background: #fff;
+  transform: translate(0.75rem, 0);
+}
+
+.learn-more-btn:hover .learn-more-btn__text,
+.learn-more-btn:focus-visible .learn-more-btn__text {
+  color: #fff;
+}
+
+.learn-more-btn:focus-visible {
+  outline: 2px solid var(--color-brand-red);
+  outline-offset: 4px;
+  border-radius: 1.625rem;
+}
+
+/* Hero on dark background */
+.learn-more-btn--hero {
+  width: 12rem;
+}
+
+.learn-more-btn--hero .learn-more-btn__circle {
+  background: var(--color-brand-red);
+}
+
+.learn-more-btn--hero .learn-more-btn__text {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.learn-more-btn--hero:hover .learn-more-btn__circle,
+.learn-more-btn--hero:focus-visible .learn-more-btn__circle {
+  background: var(--color-brand-red);
+}
+
+@media (max-width: 639px) {
+  .learn-more-btn--hero {
+    width: auto;
+    min-width: 10.75rem;
+    max-width: 11.5rem;
+    height: 2.25rem;
+    padding-right: 0.375rem;
+  }
+
+  .learn-more-btn--hero .learn-more-btn__circle {
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+
+  .learn-more-btn--hero .learn-more-btn__text {
+    left: 2.75rem;
+    right: 0.375rem;
+    font-size: 0.625rem;
+    letter-spacing: 0.05em;
+  }
+
+  .learn-more-btn--hero:hover .learn-more-btn__arrow,
+  .learn-more-btn--hero:focus-visible .learn-more-btn__arrow {
+    transform: translate(0.5rem, 0);
+  }
+}
+
+/* Site footer — convex arch (hill up into light content above) */
+.site-footer {
+  position: relative;
+}
+
+.site-footer__arch {
+  display: block;
+  width: 100%;
+  line-height: 0;
+  margin-bottom: -1px;
+}
+
+.site-footer__arch-svg {
+  display: block;
+  width: 100%;
+  height: clamp(3.5rem, 10vw, 6.25rem);
+}
+
+.site-footer__arch-fill {
+  filter: drop-shadow(0 -6px 12px rgba(0, 0, 0, 0.06));
+}
+
+.site-footer__body {
+  position: relative;
+  background-color: var(--color-brand-black);
+  background-image: linear-gradient(
+    105deg,
+    #3d1218 0%,
+    #1a1a1a 38%,
+    #1a1a1a 100%
+  );
+}
+
+/* Footer LinkedIn button (Uiverse / Gaurang7717) */
+.linkedin-footer-btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition-duration: 0.3s;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+  background-color: #0a66c2;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.linkedin-footer-btn__sign {
+  width: 100%;
+  transition-duration: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.linkedin-footer-btn__sign svg {
+  width: 18px;
+  height: 18px;
+}
+
+.linkedin-footer-btn__sign svg path {
+  fill: white;
+}
+
+.linkedin-footer-btn__text {
+  position: absolute;
+  right: 0;
+  width: 0;
+  opacity: 0;
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition-duration: 0.3s;
+  font-family: var(--font-sans);
+  white-space: nowrap;
+}
+
+.linkedin-footer-btn:hover,
+.linkedin-footer-btn:focus-visible {
+  width: 115px;
+  border-radius: 32px;
+  transition-duration: 0.3s;
+  outline: none;
+}
+
+.linkedin-footer-btn:hover .linkedin-footer-btn__sign,
+.linkedin-footer-btn:focus-visible .linkedin-footer-btn__sign {
+  width: 30%;
+  transition-duration: 0.3s;
+  padding-left: 8px;
+}
+
+.linkedin-footer-btn:hover .linkedin-footer-btn__text,
+.linkedin-footer-btn:focus-visible .linkedin-footer-btn__text {
+  opacity: 1;
+  width: 70%;
+  transition-duration: 0.3s;
+  padding-right: 8px;
+}
+
+.linkedin-footer-btn:active {
+  transform: translate(2px, 2px);
 }

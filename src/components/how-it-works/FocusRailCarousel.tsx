@@ -58,7 +58,13 @@ export function FocusRailCarousel({
 
   React.useEffect(() => {
     const update = () => {
-      setCardW(window.innerWidth <= 768 ? window.innerWidth * 0.78 : 420)
+      const vw = window.innerWidth
+      if (vw < 1280) {
+        const pad = vw < 640 ? 48 : 64
+        setCardW(Math.min(420, Math.max(260, vw - pad)))
+      } else {
+        setCardW(420)
+      }
     }
     update()
     window.addEventListener('resize', update)
@@ -121,7 +127,7 @@ export function FocusRailCarousel({
       style={{
         position: 'relative',
         display: 'flex',
-        height: '560px',
+        height: 'min(560px, 70vh)',
         width: '100%',
         flexDirection: 'column',
         overflow: 'hidden',

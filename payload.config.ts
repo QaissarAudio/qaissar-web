@@ -18,6 +18,13 @@ const dirname = path.dirname(filename)
 
 const serverURL = process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000'
 
+const extraOrigins = (process.env.PAYLOAD_ALLOWED_ORIGINS ?? '')
+  .split(',')
+  .map((o) => o.trim())
+  .filter(Boolean)
+
+const allowedOrigins = [...new Set([serverURL, ...extraOrigins])]
+
 export default buildConfig({
   admin: {
     user: 'users',
@@ -44,6 +51,6 @@ export default buildConfig({
   }),
   sharp,
   serverURL,
-  cors: [serverURL, 'https://qaissar.com'],
-  csrf: [serverURL, 'https://qaissar.com'],
+  cors: allowedOrigins,
+  csrf: allowedOrigins,
 })

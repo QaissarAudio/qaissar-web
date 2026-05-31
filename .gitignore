@@ -28,9 +28,6 @@ dev-output.log
 .env.local
 .env.*.local
 
-# vercel
-.vercel
-
 # typescript
 *.tsbuildinfo
 next-env.d.ts
@@ -41,5 +38,3 @@ payload-types.ts
 # media uploads — track the directory but not contents
 public/media/*
 !public/media/.gitkeep
-
-.vercel
