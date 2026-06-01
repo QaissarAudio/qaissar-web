@@ -19,7 +19,7 @@ export function QaissarSoundSection() {
               playlists, and announcements by prayer times or fixed rules — with secure streaming
               and real-time control of your field devices.
             </p>
-            <LinkCta href="#" label="Learn more" className="mt-8" />
+            <LinkCta href="/studio" label="Learn more" className="mt-8" />
           </div>
 
           <div className="flex justify-center md:order-2">

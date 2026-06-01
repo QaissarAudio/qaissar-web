@@ -30,6 +30,7 @@ const columns = [
     heading: 'Ecosystem',
     links: [
       { label: 'AzanPlay ↗', href: 'https://azanplay.com', external: true },
+      { label: 'Qaissar Studio', href: '/studio' },
       { label: 'Qaissar App', href: '/#' },
     ],
   },
@@ -45,23 +46,24 @@ function FooterArch() {
         preserveAspectRatio="none"
       >
         <defs>
+          {/* Barely-there warm tint at the belly of the curve — no saturated red */}
           <linearGradient
-            id="qaissar-footer-arch-gradient"
-            x1="15%"
+            id="qaissar-footer-arch-fill"
+            x1="50%"
             y1="0%"
-            x2="85%"
+            x2="50%"
             y2="100%"
           >
-            <stop offset="0%" stopColor="#E31E24" />
-            <stop offset="38%" stopColor="#8B1A1F" />
-            <stop offset="72%" stopColor="#2A1214" />
+            <stop offset="0%" stopColor="#1A1A1A" />
+            <stop offset="55%" stopColor="#1A1A1A" />
+            <stop offset="78%" stopColor="#221A1B" />
             <stop offset="100%" stopColor="#1A1A1A" />
           </linearGradient>
         </defs>
         <path
           className="site-footer__arch-fill"
-          fill="url(#qaissar-footer-arch-gradient)"
-          d="M0,80 L0,46 C360,6 1080,6 1440,46 L1440,80 Z"
+          fill="url(#qaissar-footer-arch-fill)"
+          d="M0,80 L0,64 C480,52 960,52 1440,64 L1440,80 Z"
         />
       </svg>
     </div>

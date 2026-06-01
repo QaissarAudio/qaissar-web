@@ -26,6 +26,8 @@
   --text-caption:  0.75rem;
 
   /* Line heights */
+  --footer-arch-height: clamp(2.25rem, 5.5vw, 3.75rem);
+
   --leading-tight:   1.1;
   --leading-snug:    1.25;
   --leading-normal:  1.5;
@@ -601,9 +603,17 @@
   }
 }
 
-/* Site footer — convex arch (hill up into light content above) */
+/* Last section before footer — restore space eaten by overlapping arch */
+.section-above-footer {
+  padding-bottom: calc(5rem + var(--footer-arch-height));
+}
+
+/* Site footer — convex arch (hill up into content above) */
 .site-footer {
   position: relative;
+  z-index: 1;
+  /* Pull up so transparent SVG “wings” show the section behind, not white body bg */
+  margin-top: calc(-1 * var(--footer-arch-height));
 }
 
 .site-footer__arch {
@@ -611,27 +621,34 @@
   width: 100%;
   line-height: 0;
   margin-bottom: -1px;
+  pointer-events: none;
 }
 
 .site-footer__arch-svg {
   display: block;
   width: 100%;
-  height: clamp(3.5rem, 10vw, 6.25rem);
-}
-
-.site-footer__arch-fill {
-  filter: drop-shadow(0 -6px 12px rgba(0, 0, 0, 0.06));
+  height: var(--footer-arch-height);
 }
 
 .site-footer__body {
   position: relative;
   background-color: var(--color-brand-black);
   background-image: linear-gradient(
-    105deg,
-    #3d1218 0%,
-    #1a1a1a 38%,
-    #1a1a1a 100%
+    110deg,
+    rgba(227, 30, 36, 0.07) 0%,
+    transparent 42%
   );
+}
+
+/* CTA band on dark background — softer button, less clash with footer */
+.site-cta-on-dark .nav-cta-pill {
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
+}
+
+.site-cta-on-dark .nav-cta-pill:hover {
+  box-shadow:
+    0 10px 32px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(227, 30, 36, 0.35);
 }
 
 /* Footer LinkedIn button (Uiverse / Gaurang7717) */
