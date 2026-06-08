@@ -603,6 +603,303 @@
   }
 }
 
+/* ── Studio page hero (from salamsound landing) ─────────────────────────── */
+.studio-hero {
+  position: relative;
+  background: #fff;
+}
+
+.studio-hero__stage {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: clamp(34rem, 90svh, 52rem);
+  padding: clamp(1.5rem, 4vw, 3rem) clamp(1rem, 4vw, 1.5rem)
+    clamp(2rem, 4vw, 3rem);
+  overflow: hidden;
+}
+
+.studio-hero__stage::after {
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: 1;
+  height: clamp(3.5rem, 9vw, 6rem);
+  pointer-events: none;
+  background: linear-gradient(
+    to top,
+    var(--color-brand-gray-100) 0%,
+    rgba(245, 245, 245, 0.88) 50%,
+    transparent 100%
+  );
+}
+
+.studio-hero__backdrop {
+  position: absolute;
+  inset: 4% -16% 4% -16%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.studio-hero__scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse 88% 72% at 50% 50%,
+      rgba(255, 255, 255, 0.94) 0%,
+      rgba(255, 255, 255, 0.78) 38%,
+      rgba(255, 255, 255, 0.42) 62%,
+      rgba(255, 255, 255, 0.08) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.55) 0%,
+      transparent 18%,
+      transparent 82%,
+      rgba(255, 255, 255, 0.45) 100%
+    );
+}
+
+.studio-hero__content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 56rem;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 4vw, 1.5rem);
+  text-align: center;
+}
+
+.studio-hero__eyebrow {
+  margin-bottom: 0.75rem;
+  font-size: var(--text-body-sm);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-brand-red);
+}
+
+.studio-hero__title {
+  margin-bottom: 0.75rem;
+  margin-inline: auto;
+  max-width: 52rem;
+  font-size: clamp(1.85rem, 5.8vw, 4.25rem);
+  font-weight: 800;
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  color: var(--color-brand-black);
+}
+
+.studio-hero__accent {
+  color: var(--color-brand-red);
+}
+
+.studio-hero__subtitle {
+  margin-bottom: clamp(1rem, 2.5vw, 1.5rem);
+  margin-inline: auto;
+  max-width: 40rem;
+  font-size: clamp(0.9375rem, 2vw, 1.125rem);
+  line-height: 1.5;
+  color: var(--color-brand-gray-800);
+  text-wrap: pretty;
+}
+
+.studio-hero__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.625rem;
+}
+
+.studio-hero__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  text-decoration: none;
+  transition:
+    transform 0.15s ease,
+    opacity 0.15s ease,
+    background 0.15s ease,
+    color 0.15s ease;
+  white-space: nowrap;
+}
+
+.studio-hero__btn:active {
+  transform: scale(0.97);
+}
+
+.studio-hero__btn--primary {
+  background: var(--color-brand-red);
+  color: #fff;
+  padding: 1rem 2rem;
+  font-size: 1.0625rem;
+  box-shadow: 0 0 20px rgba(227, 30, 36, 0.15);
+}
+
+.studio-hero__btn--primary:hover {
+  opacity: 0.92;
+}
+
+.studio-hero__btn--ghost {
+  border: 1px solid transparent;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(16px);
+  padding: 1rem 2rem;
+  font-size: 1.0625rem;
+  color: var(--color-brand-black);
+  box-shadow: inset 0 0 0 1px rgba(26, 26, 26, 0.08);
+}
+
+.studio-hero__btn--ghost:hover {
+  background: #fff;
+}
+
+.studio-hero__parallax {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0;
+  opacity: 0.84;
+  transform: rotate(11deg) scale(1.2);
+  transform-origin: center center;
+}
+
+.studio-hero__parallax-row {
+  display: flex;
+  gap: clamp(0.625rem, 1.6vw, 1.125rem);
+  width: 158%;
+  margin-bottom: clamp(0.625rem, 1.4vw, 1rem);
+  will-change: transform;
+}
+
+.studio-hero__parallax-row--offset {
+  margin-inline-start: -18%;
+}
+
+.studio-hero__parallax-tile {
+  position: relative;
+  flex: 0 0 clamp(8.5rem, 24vw, 19.5rem);
+  height: clamp(8.5rem, 24vw, 19.5rem);
+  overflow: hidden;
+  border-radius: 0.75rem;
+  box-shadow: 0 14px 36px rgba(26, 26, 26, 0.14);
+}
+
+.studio-hero__parallax-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.studio-hero__parallax-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  padding: 1rem;
+  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.45));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.studio-hero__parallax-tile:hover .studio-hero__parallax-overlay {
+  opacity: 1;
+}
+
+.studio-hero__parallax-overlay span {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+@media (min-width: 640px) {
+  .studio-hero__actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+
+  .studio-hero__btn--primary,
+  .studio-hero__btn--ghost {
+    width: auto;
+  }
+}
+
+@media (min-width: 768px) {
+  .studio-hero__parallax {
+    opacity: 0.8;
+    transform: rotate(12deg) scale(1.22);
+  }
+
+  .studio-hero__parallax-tile {
+    flex-basis: clamp(10.5rem, 19vw, 20rem);
+    height: clamp(10.5rem, 19vw, 20rem);
+  }
+}
+
+@media (min-width: 1024px) {
+  .studio-hero__stage {
+    min-height: clamp(46rem, 96svh, 64rem);
+    padding-bottom: clamp(2.5rem, 5vw, 4rem);
+  }
+
+  .studio-hero__backdrop {
+    inset: 0 -14% 0 -14%;
+  }
+}
+
+@media (min-width: 1280px) {
+  .studio-hero__stage {
+    min-height: clamp(48rem, 98svh, 72rem);
+  }
+}
+
+@media (max-width: 639px) {
+  .studio-hero__stage {
+    min-height: clamp(32rem, 88svh, 40rem);
+  }
+
+  .studio-hero__backdrop {
+    inset: 6% -24% 5% -24%;
+  }
+
+  .studio-hero__parallax {
+    opacity: 0.74;
+    transform: rotate(10deg) scale(1.1);
+  }
+
+  .studio-hero__parallax-tile {
+    flex-basis: clamp(7.25rem, 32vw, 9.5rem);
+    height: clamp(7.25rem, 32vw, 9.5rem);
+    border-radius: 0.625rem;
+  }
+
+  .studio-hero__parallax-row {
+    margin-bottom: clamp(0.45rem, 2vw, 0.65rem);
+  }
+
+  .studio-hero__btn--primary,
+  .studio-hero__btn--ghost {
+    width: 100%;
+  }
+}
+
 /* Last section before footer — restore space eaten by overlapping arch */
 .section-above-footer {
   padding-bottom: calc(5rem + var(--footer-arch-height));

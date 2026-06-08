@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 export function StudioMultiLocationSection() {
   return (
-    <section className="bg-brand-gray-100 pt-24 pb-20">
+    <section id="studio-features" className="bg-brand-gray-100 pt-24 pb-20">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
           <div className="flex justify-center">

@@ -9,7 +9,11 @@ import { DistributorCta } from '@/components/ui/DistributorCta'
 const links = [
   { label: 'Products', href: '/products' },
   { label: 'App', href: '/app' },
-  { label: 'Studio', href: '/studio' },
+  {
+    label: 'Studio',
+    href: 'https://studio.qaissar.com/login',
+    external: true,
+  },
   { label: 'How It Works', href: '/how-it-works' },
   { label: 'About', href: '/about' },
 ]
@@ -41,10 +45,25 @@ function NavLinks({
 }) {
   return (
     <>
-      {links.map(({ label, href }) => {
-        const isActive = href !== '/#' && pathname === href
+      {links.map(({ label, href, external }) => {
+        const isActive = !external && href !== '/#' && pathname === href
+        const className = navLinkClass(isActive, size)
+
+        if (external) {
+          return (
+            <a
+              key={label}
+              href={href}
+              className={className}
+              onClick={onNavigate}
+            >
+              {label}
+            </a>
+          )
+        }
+
         return (
-          <Link key={label} href={href} className={navLinkClass(isActive, size)} onClick={onNavigate}>
+          <Link key={label} href={href} className={className} onClick={onNavigate}>
             {label}
           </Link>
         )
