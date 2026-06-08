@@ -1,11 +1,15 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import Link from 'next/link'
-import { PlayCircle } from 'lucide-react'
+
+import { LearnMoreCtaButton } from '@/components/ui/LearnMoreCtaButton'
 import { STUDIO_PARALLAX_ROWS } from '@/components/studio/studio-parallax-content'
 
-const STUDIO_APP_URL = 'https://studio.qaissar.com'
+const STUDIO_APP_URL =
+  process.env.NEXT_PUBLIC_STUDIO_APP_URL ?? 'https://studio.qaissar.com'
+
+const GET_STARTED_URL = `${STUDIO_APP_URL}/en/register`
+const LOGIN_URL = `${STUDIO_APP_URL}/en/login`
 
 export function StudioHeroSection() {
   const row1Ref = useRef<HTMLDivElement>(null)
@@ -68,18 +72,18 @@ export function StudioHeroSection() {
             to restaurants, cafés, gyms, and masjids with studio-grade precision.
           </p>
           <div className="studio-hero__actions">
-            <a
-              href={STUDIO_APP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="studio-hero__btn studio-hero__btn--primary"
-            >
-              Start 14-Day Trial
-            </a>
-            <Link href="#studio-features" className="studio-hero__btn studio-hero__btn--ghost">
-              <PlayCircle size={22} strokeWidth={1.5} aria-hidden="true" />
-              See How it Works
-            </Link>
+            <LearnMoreCtaButton
+              href={GET_STARTED_URL}
+              label="Get started"
+              external
+              variant="studio-primary"
+            />
+            <LearnMoreCtaButton
+              href={LOGIN_URL}
+              label="Login"
+              external
+              variant="studio-ghost"
+            />
           </div>
         </div>
       </div>

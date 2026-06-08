@@ -603,6 +603,47 @@
   }
 }
 
+/* Animated CTA on Studio hero (light scrim) */
+.learn-more-btn--studio,
+.learn-more-btn--studio-ghost {
+  width: 11.5rem;
+}
+
+.learn-more-btn--studio .learn-more-btn__circle {
+  background: var(--color-brand-red);
+}
+
+.learn-more-btn--studio .learn-more-btn__text {
+  color: var(--color-brand-black);
+}
+
+.learn-more-btn--studio:hover .learn-more-btn__circle,
+.learn-more-btn--studio:focus-visible .learn-more-btn__circle {
+  background: var(--color-brand-red);
+}
+
+.learn-more-btn--studio-ghost .learn-more-btn__circle {
+  background: var(--color-brand-black);
+}
+
+.learn-more-btn--studio-ghost .learn-more-btn__text {
+  color: var(--color-brand-black);
+}
+
+.learn-more-btn--studio-ghost:hover .learn-more-btn__circle,
+.learn-more-btn--studio-ghost:focus-visible .learn-more-btn__circle {
+  background: var(--color-brand-black);
+}
+
+@media (max-width: 639px) {
+  .learn-more-btn--studio,
+  .learn-more-btn--studio-ghost {
+    width: 100%;
+    max-width: 16rem;
+    margin-inline: auto;
+  }
+}
+
 /* ── Studio page hero (from salamsound landing) ─────────────────────────── */
 .studio-hero {
   position: relative;

@@ -3,6 +3,7 @@ import { StudioHeroSection } from '@/components/studio/StudioHeroSection'
 import { StudioMultiLocationSection } from '@/components/studio/StudioMultiLocationSection'
 import { StudioPrayerTimesSection } from '@/components/studio/StudioPrayerTimesSection'
 import { StudioSchedulingSection } from '@/components/studio/StudioSchedulingSection'
+import { StudioPricingSection } from '@/components/studio/StudioPricingSection'
 import { StudioVoiceAdsSection } from '@/components/studio/StudioVoiceAdsSection'
 
 export const metadata: Metadata = {
@@ -19,6 +20,7 @@ export default function StudioPage() {
       <StudioPrayerTimesSection />
       <StudioSchedulingSection />
       <StudioVoiceAdsSection />
+      <StudioPricingSection />
     </main>
   )
 }
