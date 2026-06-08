@@ -6,10 +6,20 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import QaissarLogo from '@/components/logo/QaissarLogo'
 import { DistributorCta } from '@/components/ui/DistributorCta'
 
-const links = [
+type NavLinkItem = {
+  label: string
+  href: string
+  external?: boolean
+}
+
+const links: NavLinkItem[] = [
   { label: 'Products', href: '/products' },
   { label: 'App', href: '/app' },
-  { label: 'Studio', href: '/studio' },
+  {
+    label: 'Studio',
+    href: 'https://studio.qaissar.com/login',
+    external: true,
+  },
   { label: 'How It Works', href: '/how-it-works' },
   { label: 'About', href: '/about' },
 ]
