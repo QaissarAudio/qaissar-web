@@ -15,11 +15,7 @@ type NavLinkItem = {
 const links: NavLinkItem[] = [
   { label: 'Products', href: '/products' },
   { label: 'App', href: '/app' },
-  {
-    label: 'Studio',
-    href: 'https://studio.qaissar.com/login',
-    external: true,
-  },
+  { label: 'Studio', href: '/studio' },
   { label: 'How It Works', href: '/how-it-works' },
   { label: 'About', href: '/about' },
 ]
